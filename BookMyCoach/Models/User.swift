@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct User: Codable {
     var id: Int
     var name: String
     var profilePhoto: String
@@ -20,7 +20,7 @@ struct User {
     var rating: Float = 0.0
 }
 
-enum UserType: Int {
+enum UserType: Int, Codable {
     case coach
     case player
 }

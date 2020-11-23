@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PlayerHome: View {
+    
+    @State private var bookings: [Booking] = [booking1, booking2, booking3]
+    
     var body: some View {
         
         ZStack {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Booking {
+struct Booking: Codable {
     var id: Int
     var userId: Int
     var coach: User
