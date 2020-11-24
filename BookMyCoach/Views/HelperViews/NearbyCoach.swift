@@ -38,68 +38,60 @@ struct NearbyCoach_Previews: PreviewProvider {
 struct CoachProfileCard: View {
     
     var coach: User
+    let screen = UIScreen.main.bounds
     
     var body: some View {
-        ZStack {
-            VStack {
-                KFImage(URL(string: coach.profilePhoto))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 200)
-                    .clipped()
-            }
-            VStack {
-                HStack(spacing: 2) {
+        HStack {
+            KFImage(URL(string: coach.profilePhoto))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: screen.width / 3)
+                .clipped()
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text(coach.name)
+                    .font(.title2)
+                    .bold()
+                    .padding(.top, 16)
+                
+                HStack {
+                    Image(coach.sport[0].icon)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                    Text(coach.sport[0].name)
+                }
+                
+                HStack(spacing: 8) {
                     Text("$")
                         .font(.title3)
                         .bold()
                         .foregroundColor(.yellow)
                     Text(coach.price?.description ?? "0.0")
                         .bold()
-                    Spacer()
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
-                    Text(coach.rating.description)
+                        .padding(.leading, 12)
+                    Text("5.0")
                         .bold()
                 }
-                .padding()
-                .background(LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.6), Color.clear]), startPoint: .top, endPoint: .bottom))
                 Spacer()
-                HStack {
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text(coach.name)
-                            .bold()
-                            .lineLimit(1)
-                            .font(.title3)
-                        HStack {
-                            Image(coach.sport[0].icon)
-                                .resizable()
-                                .clipped()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 15, height: 15)
-                            Text(coach.sport[0].name)
-                                .lineLimit(1)
-                                .font(.subheadline)
-                                .foregroundColor(Color.black.opacity(0.6))
-                        }
-                    }
-                    Spacer()
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        HStack {
-                            Text("Book Now")
-                                .font(.title2)
-                                .bold()
-                        }
-                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(6)
-                    })
-                }
-                .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-                .background(Color.white)
-                .foregroundColor(.black)
+                Button(action: {}, label: {
+                    Text("Book Now")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .font(.title3)
+                        .padding(.vertical, 10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
+                })
+                .padding(.bottom, 16)
             }
+            .padding(.horizontal)
+            Spacer()
         }
+        .background(Color.white.opacity(0.2))
+        .foregroundColor(.white)
     }
 }
+

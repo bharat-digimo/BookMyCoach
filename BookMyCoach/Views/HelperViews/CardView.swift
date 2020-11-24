@@ -21,7 +21,7 @@ struct CardView: View {
                 TabView {
                     ForEach(bookings, id: \.id) { booking in
                         ZStack {
-                            Color.gray.opacity(0.5)
+                            Color.white.opacity(0.2)
                             VStack {
                                 CoachProfileView(booking: booking, shouldShowRating: true)
                                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
