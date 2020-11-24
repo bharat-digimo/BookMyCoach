@@ -25,10 +25,6 @@ struct CoachHome: View {
                     CardHeader(category: "Recent Booking Invitations")
                         .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
                     RecentBooking(bookings: [booking5, booking8, booking9, booking10])
-                    CardHeader(category: "Nearby Coaches")
-                        .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
-                    NearbyCoach(coaches: allCoaches)
-                        .padding()
                 }
             }
             .foregroundColor(.white)

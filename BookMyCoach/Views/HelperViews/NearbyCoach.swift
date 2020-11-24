@@ -11,7 +11,6 @@ import KingfisherSwiftUI
 struct NearbyCoach: View {
     
     let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 12),
         GridItem(.flexible(), spacing: 12)
     ]
     var coaches: [User]
@@ -42,14 +41,13 @@ struct CoachProfileCard: View {
     
     var body: some View {
         ZStack {
-            Color.white
             VStack {
                 KFImage(URL(string: coach.profilePhoto))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .cornerRadius(20)
+                    .frame(height: 200)
+                    .clipped()
             }
-            .padding(.all, 2)
             VStack {
                 HStack(spacing: 2) {
                     Text("$")
@@ -68,8 +66,7 @@ struct CoachProfileCard: View {
                 .background(LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.6), Color.clear]), startPoint: .top, endPoint: .bottom))
                 Spacer()
                 HStack {
-                    Spacer()
-                    VStack(spacing: 0) {
+                    VStack(alignment: .leading, spacing: 0) {
                         Text(coach.name)
                             .bold()
                             .lineLimit(1)
@@ -87,11 +84,22 @@ struct CoachProfileCard: View {
                         }
                     }
                     Spacer()
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        HStack {
+                            Text("Book Now")
+                                .font(.title2)
+                                .bold()
+                        }
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(6)
+                    })
                 }
-                .padding(EdgeInsets(top: 4, leading: 8, bottom: 8, trailing: 8))
+                .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                 .background(Color.white)
                 .foregroundColor(.black)
             }
-        }.cornerRadius(20)
+        }
     }
 }

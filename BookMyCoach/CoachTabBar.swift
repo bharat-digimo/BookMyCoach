@@ -38,7 +38,7 @@ struct CoachTabBar: View {
                 }
                 .tag(1)
             
-            Text("Profile")
+            ProfileView(user: coach1)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.fill")
@@ -47,6 +47,7 @@ struct CoachTabBar: View {
                 }
                 .tag(0)
         }
+        .accentColor(.white)
         .preferredColorScheme(.dark)
     }
 }
