@@ -48,7 +48,7 @@ struct CoachProfileCard: View {
             }
             .padding(.all, 2)
             VStack {
-                HStack {
+                HStack(spacing: 2) {
                     Text("$")
                         .font(.title3)
                         .bold()
