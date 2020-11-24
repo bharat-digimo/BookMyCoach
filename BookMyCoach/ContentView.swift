@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    init() {
+        
+//        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = .black
+    }
     var body: some View {
         TabView {
             PlayerHome()
@@ -37,6 +43,8 @@ struct ContentView: View {
                 }
                 .tag(0)
         }
+        .accentColor(.white)
+        .preferredColorScheme(.dark)
     }
 }
 

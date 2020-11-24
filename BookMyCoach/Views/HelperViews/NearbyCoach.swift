@@ -10,11 +10,14 @@ import KingfisherSwiftUI
 
 struct NearbyCoach: View {
     
-    let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible())]
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12)
+    ]
     var coaches: [User]
     
     var body: some View {
-        LazyVGrid(columns: columns) {
+        LazyVGrid(columns: columns, spacing: 12) {
             ForEach(coaches, id: \.id) { coach in
                 CoachProfileCard(coach: coach)
             }
@@ -28,7 +31,7 @@ struct NearbyCoach_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            NearbyCoach(coaches: [coach1, coach2])
+            NearbyCoach(coaches: [coach1, coach2, coach6, coach8, coach5])
         }
     }
 }
