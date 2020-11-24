@@ -11,6 +11,10 @@
 		329C39DC256CC66200B69E17 /* SportsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39DB256CC66100B69E17 /* SportsList.swift */; };
 		329C39DF256CC8C300B69E17 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39DE256CC8C300B69E17 /* Sport.swift */; };
 		329C39E2256CD32800B69E17 /* NearbyCoach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E1256CD32700B69E17 /* NearbyCoach.swift */; };
+		329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E5256D0B8200B69E17 /* CoachTabBar.swift */; };
+		329C39EA256D0DCC00B69E17 /* CoachHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E9256D0DCB00B69E17 /* CoachHome.swift */; };
+		329C39ED256D0FB300B69E17 /* SessionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39EC256D0FB300B69E17 /* SessionCardView.swift */; };
+		329C39F0256D10D600B69E17 /* RecentBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39EF256D10D600B69E17 /* RecentBooking.swift */; };
 		4F0DC43E256C1B2C002F2364 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0DC43D256C1B2C002F2364 /* KingfisherSwiftUI */; };
 		4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DC463256D143A002F2364 /* ProfileView.swift */; };
 		4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */; };
@@ -30,6 +34,10 @@
 		329C39DE256CC8C300B69E17 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		329C39E1256CD32700B69E17 /* NearbyCoach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyCoach.swift; sourceTree = "<group>"; };
 		4F0DC463256D143A002F2364 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		329C39E5256D0B8200B69E17 /* CoachTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachTabBar.swift; sourceTree = "<group>"; };
+		329C39E9256D0DCB00B69E17 /* CoachHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachHome.swift; sourceTree = "<group>"; };
+		329C39EC256D0FB300B69E17 /* SessionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCardView.swift; sourceTree = "<group>"; };
+		329C39EF256D10D600B69E17 /* RecentBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBooking.swift; sourceTree = "<group>"; };
 		4F2D8E3C256BD500001A14C3 /* BookMyCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMyCoachApp.swift; sourceTree = "<group>"; };
 		4F2D8E41256BD500001A14C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */,
+				329C39E5256D0B8200B69E17 /* CoachTabBar.swift */,
 				4F2D8E41256BD500001A14C3 /* ContentView.swift */,
 				329C39D5256C17FA00B69E17 /* Helper */,
 				4F2D8E53256BD92E001A14C3 /* Views */,
@@ -114,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4F2D8E4F256BD8C1001A14C3 /* PlayerHome.swift */,
+				329C39E9256D0DCB00B69E17 /* CoachHome.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -135,6 +145,8 @@
 				4F2D8E5A256C06FC001A14C3 /* CardView.swift */,
 				329C39DB256CC66100B69E17 /* SportsList.swift */,
 				329C39E1256CD32700B69E17 /* NearbyCoach.swift */,
+				329C39EC256D0FB300B69E17 /* SessionCardView.swift */,
+				329C39EF256D10D600B69E17 /* RecentBooking.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -224,12 +236,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329C39F0256D10D600B69E17 /* RecentBooking.swift in Sources */,
 				329C39DF256CC8C300B69E17 /* Sport.swift in Sources */,
+				329C39ED256D0FB300B69E17 /* SessionCardView.swift in Sources */,
+				329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */,
 				4F2D8E42256BD500001A14C3 /* ContentView.swift in Sources */,
 				4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */,
 				4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */,
 				4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */,
 				4F2D8E50256BD8C1001A14C3 /* PlayerHome.swift in Sources */,
+				329C39EA256D0DCC00B69E17 /* CoachHome.swift in Sources */,
 				329C39E2256CD32800B69E17 /* NearbyCoach.swift in Sources */,
 				4F2D8E57256BD964001A14C3 /* HeaderView.swift in Sources */,
 				329C39DC256CC66200B69E17 /* SportsList.swift in Sources */,

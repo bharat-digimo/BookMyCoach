@@ -23,7 +23,7 @@ struct CardView: View {
                         ZStack {
                             Color.gray.opacity(0.5)
                             VStack {
-                                CoachProfileView(booking: booking)
+                                CoachProfileView(booking: booking, shouldShowRating: true)
                                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
                                 HStack {
                                     ContentLabel(labelName: "Booking Date", value: "24th March, 2020")
@@ -60,6 +60,7 @@ struct CoachProfileView: View {
     
     let screen = UIScreen.main.bounds
     let booking: Booking
+    let shouldShowRating: Bool
     
     var body: some View {
         LazyVStack {
@@ -79,11 +80,13 @@ struct CoachProfileView: View {
                 }
                 .padding(.leading, 8)
                 Spacer()
-                HStack(alignment: .top) {
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                    Text(booking.coach.rating.description)
-                        .bold()
+                if shouldShowRating {
+                    HStack(alignment: .top) {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Text(booking.coach.rating.description)
+                            .bold()
+                    }
                 }
             }
         }.padding()
