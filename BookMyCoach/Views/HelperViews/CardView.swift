@@ -9,50 +9,37 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct CardView: View {
+    
     var bookings: [Booking]
     let screen = UIScreen.main.bounds
     
     var body: some View {
-        if bookings.count == 0 {
-            Text("No booking available for you.")
-        } else {
-            VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        ForEach(bookings, id: \.id) { booking in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .stroke(Color.gray, lineWidth: 2)
-                                    .frame(height: 180)
-                                    .background(Color.gray.opacity(0.5))
-                                
-                                VStack {
-                                    CoachProfileView(booking: booking)
-                                    Rectangle()
-                                        .frame(height: 0.5)
-                                        .background(Color.gray.opacity(0.5))
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text("Booking Date")
-                                                .foregroundColor(Color.white.opacity(0.7))
-                                            Text(booking.bookingDate?.description ?? "")
-                                                .bold()
-                                        }
-                                        Spacer()
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text("Session Time")
-                                                .foregroundColor(Color.white.opacity(0.7))
-                                            Text(booking.sessionTime ?? "")
-                                                .bold()
-                                        }
-                                    }
-                                    .padding()
+        ScrollView(.horizontal, showsIndicators: false) {
+            if bookings.count == 0 {
+                Text("No booking available for you.")
+            } else {
+                TabView {
+                    ForEach(bookings, id: \.id) { booking in
+                        ZStack {
+                            Color.gray.opacity(0.5)
+                            VStack {
+                                CoachProfileView(booking: booking)
+                                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
+                                HStack {
+                                    ContentLabel(labelName: "Booking Date", value: "24th March, 2020")
+                                    Spacer()
+                                    ContentLabel(labelName: "Session Time", value: "09:00 AM")
                                 }
+                                .padding()
+                                Spacer()
                             }
-                            .foregroundColor(.white)
-                        }
+                        }.clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     }
+                    .padding(.all, 10)
                 }
+                .frame(width: UIScreen.main.bounds.width, height: 200)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .foregroundColor(.white)
             }
         }
         
@@ -75,32 +62,45 @@ struct CoachProfileView: View {
     let booking: Booking
     
     var body: some View {
-        HStack(spacing: 20) {
-            KFImage(URL(string: booking.coach.profilePhoto))
-                .resizable()
-                .frame(width: 60, height: 60)
-                .aspectRatio(contentMode: .fill)
-                .cornerRadius(30)
-            VStack(alignment: .leading) {
-                Text(booking.coach.name)
-                    .bold()
-                    .lineLimit(1)
-                    .font(.title2)
-                Text("Basket Ball")
-            }
-            Spacer()
-            VStack {
-                HStack {
+        LazyVStack {
+            HStack {
+                KFImage(URL(string: booking.coach.profilePhoto))
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(30)
+                    .aspectRatio(contentMode: .fill)
+                VStack(alignment: .leading) {
+                    Text(booking.coach.name)
+                        .font(.title2)
+                        .bold()
+                    Text("Basket Ball")
+                        .font(.subheadline)
+                        .foregroundColor(Color.white.opacity(0.7))
+                }
+                .padding(.leading, 8)
+                Spacer()
+                HStack(alignment: .top) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                     Text(booking.coach.rating.description)
                         .bold()
-                        .font(.title3)
                 }
-                Spacer()
             }
-        }
-        .padding()
-        .frame(width: screen.width, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+        }.padding()
     }
+}
+
+struct ContentLabel: View {
+    
+    var labelName: String
+    var value: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(labelName)
+                .foregroundColor(Color.white.opacity(0.6))
+            Text(value)
+        }
+    }
+    
 }

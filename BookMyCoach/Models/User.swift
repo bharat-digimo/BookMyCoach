@@ -16,7 +16,7 @@ struct User: Codable {
     var longitude: Double?
     var price: Double?
     var type: UserType = UserType.player
-    
+    var sport: [Sport]
     var rating: Float = 0.0
 }
 
