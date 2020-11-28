@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct BookMyCoachApp: App {
+    
+    var user: User? = UserManager.shared.activeUser
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if user == nil {
+                LoginView()
+            } else {
+                ContentView()
+            }
+            
         }
     }
 }

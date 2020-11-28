@@ -57,3 +57,12 @@ let booking7 = Booking(id: 27, userId: 1, coach: coach7, responseDate: Date(), s
 let booking8 = Booking(id: 28, userId: 1, coach: coach8, responseDate: Date(), sessionTime: "06:00 AM", status: .accepted)
 let booking9 = Booking(id: 29, userId: 1, coach: coach9, responseDate: Date(), sessionTime: "05:00 AM", status: .active)
 let booking10 = Booking(id: 30, userId: 1, coach: coach10, responseDate: Date(), sessionTime: "08:00 AM", status: .accepted)
+
+
+func debugLog(_ message: Any...) {
+    if message.count > 1 {
+        debugPrint(message)
+    } else {
+        debugPrint(message.first ?? "")
+    }
+}
