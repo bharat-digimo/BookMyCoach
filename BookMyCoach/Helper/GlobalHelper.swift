@@ -47,13 +47,13 @@ let user10 = User(id: 20, name: "Serena Y", profilePhoto: "https://picsum.photos
 
 let allCoaches = [coach1, coach2, coach3, coach4, coach5, coach6, coach7, coach8, coach9, coach10]
 
-let booking1 = Booking(id: 21, userId: 1, coach: coach1, bookingDate: Date(), sessionTime: "09:00 AM")
-let booking2 = Booking(id: 22, userId: 1, coach: coach2, bookingDate: Date(), sessionTime: "10:00 AM")
-let booking3 = Booking(id: 23, userId: 1, coach: coach3, bookingDate: Date(), sessionTime: "11:00 AM")
-let booking4 = Booking(id: 24, userId: 1, coach: coach4, bookingDate: Date(), sessionTime: "09:00 AM")
-let booking5 = Booking(id: 25, userId: 1, coach: coach5, bookingDate: Date(), sessionTime: "08:00 AM")
-let booking6 = Booking(id: 26, userId: 1, coach: coach6, bookingDate: Date(), sessionTime: "05:00 AM")
-let booking7 = Booking(id: 27, userId: 1, coach: coach7, bookingDate: Date(), sessionTime: "07:00 PM")
-let booking8 = Booking(id: 28, userId: 1, coach: coach8, bookingDate: Date(), sessionTime: "06:00 AM")
-let booking9 = Booking(id: 29, userId: 1, coach: coach9, bookingDate: Date(), sessionTime: "05:00 AM")
-let booking10 = Booking(id: 30, userId: 1, coach: coach10, bookingDate: Date(), sessionTime: "08:00 AM")
+let booking1 = Booking(id: 21, userId: 1, coach: coach1, responseDate: Date(), sessionTime: "09:00 AM", status: .pending)
+let booking2 = Booking(id: 22, userId: 1, coach: coach2, responseDate: Date(), sessionTime: "10:00 AM", status: .active)
+let booking3 = Booking(id: 23, userId: 1, coach: coach3, responseDate: Date(), sessionTime: "11:00 AM", status: .accepted)
+let booking4 = Booking(id: 24, userId: 1, coach: coach4, responseDate: Date(), sessionTime: "09:00 AM", status: .accepted)
+let booking5 = Booking(id: 25, userId: 1, coach: coach5, responseDate: Date(), sessionTime: "08:00 AM", status: .active)
+let booking6 = Booking(id: 26, userId: 1, coach: coach6, responseDate: Date(), sessionTime: "05:00 AM", status: .pending)
+let booking7 = Booking(id: 27, userId: 1, coach: coach7, responseDate: Date(), sessionTime: "07:00 PM", status: .pending)
+let booking8 = Booking(id: 28, userId: 1, coach: coach8, responseDate: Date(), sessionTime: "06:00 AM", status: .accepted)
+let booking9 = Booking(id: 29, userId: 1, coach: coach9, responseDate: Date(), sessionTime: "05:00 AM", status: .active)
+let booking10 = Booking(id: 30, userId: 1, coach: coach10, responseDate: Date(), sessionTime: "08:00 AM", status: .accepted)
