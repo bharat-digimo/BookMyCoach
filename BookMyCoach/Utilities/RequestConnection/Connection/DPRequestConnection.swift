@@ -33,6 +33,9 @@ final class BookMyCoach {
         let request = service.prepareRequest()
         urlSession.dataTask(with: request) { (data, response, error) in
             let dataResponse = DPResponse(data: data, response: response, error: error, service: service)
+            if let accessToken = dataResponse.headers?["token"] as? String {
+                UserManager.shared.accessToken = accessToken
+            }
             DispatchQueue.main.async {
                 completionHandler(dataResponse)
             }

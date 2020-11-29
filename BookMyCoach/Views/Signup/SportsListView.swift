@@ -11,6 +11,8 @@ struct SportsListView: View {
     
     var viewModels: [SportViewModel] = allSports.map({ SportViewModel(sport: $0) })
     @State private var navBarHidden: Bool = true
+    @State private var showContentView: Bool = false
+    
     func image(for state: Bool) -> Image {
         return state ? Image(systemName: "checkmark.circle") : Image(systemName: "circle")
     }
@@ -53,8 +55,13 @@ struct SportsListView: View {
                         }
                     }
                 }
-                RoundedButton(text: "Next")
+                RoundedButton(text: "Next") {
+                    showContentView = true
+                }
             }
+            .fullScreenCover(isPresented: $showContentView, content: {
+                ContentView()
+            })
         }
         .navigationTitle("")
         .navigationBarHidden(navBarHidden)

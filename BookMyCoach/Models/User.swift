@@ -19,7 +19,7 @@ struct User: Codable {
     var userType: UserType = UserType.player
     var sport: [Sport]?
     var rating: Float? = 0.0
-    var isProfileCompleted: Bool? = false
+    var isProfileComplete: Bool? = false
 }
 
 enum UserType: String, Codable {
@@ -51,10 +51,10 @@ extension User {
         }
     }
     
-    func update(_ request: UserUpdateRequest, handler: @escaping (Bool?, Error?) -> ()) {
+    func update(_ request: UserUpdateRequest, handler: @escaping (User?, Error?) -> ()) {
         let service = APIService.updateUser(request: request)
-        service.submit { (response) in
-            handler(response.isSuccess, response.error)
+        service.fetch(User.self) { (user, error, _) in
+            handler(user, error)
         }
     }
     

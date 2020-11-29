@@ -17,10 +17,13 @@ struct BookMyCoachApp: App {
             if user == nil {
                 LoginView()
             } else {
-                if user?.isProfileCompleted == true {
+                if user?.isProfileComplete == true {
                     ContentView()
                 } else {
-                    CoachPersonalInfoView()
+                    NavigationView {
+                        CoachPersonalInfoView()
+                            .navigationBarHidden(true)
+                    }
                 }
                 
             }

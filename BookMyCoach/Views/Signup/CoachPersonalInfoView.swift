@@ -50,7 +50,7 @@ struct CoachPersonalInfoView: View {
                             Text("Choose a profile photo (Optional)")
                                 .foregroundColor(.white)
                                 .padding(.leading)
-                        }
+                        }.padding(.horizontal)
                         
                         LoginTextField(text: $fullName, placeholder: "Full Name", imageName: "person")
                             .padding(.horizontal, 20)
@@ -105,9 +105,10 @@ struct CoachPersonalInfoView: View {
             }
             hideKeyboard()
             showLoading = true
-            user?.update(UserUpdateRequest(fullName: fullName, bio: bio, price: Double(hourlyRate), latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (success, error) in
+            user?.update(UserUpdateRequest(fullName: fullName, bio: bio, price: Double(hourlyRate), latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (user, error) in
                 showLoading = false
                 if error == nil {
+                    UserManager.shared.activeUser = user
                     showSportsList = true
                 } else {
                     alertMessage = error?.localizedDescription ?? "Something went wrong!!"

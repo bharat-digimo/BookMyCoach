@@ -12,10 +12,12 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isShowingSignupView = false
-    @State private var isUserLoggedIn = false
+    @State private var showCompleteProfile = false
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
+    @State private var showPlayerDashboard = false
+    @State private var showCoachDashboard = false
         
     init() {
         //Use this if NavigationBarTitle is with Large Font
@@ -50,7 +52,7 @@ struct LoginView: View {
                                 .padding()
                             
                             Spacer().frame(height: 60)
-                            NavigationLink(destination: Text("Dashboard"), isActive: $isUserLoggedIn) { EmptyView() }
+                            NavigationLink(destination: CoachPersonalInfoView(), isActive: $showCompleteProfile) { EmptyView() }
                             RoundedButton(text: "Login") {
                                 loginTapped()
                             }
@@ -69,6 +71,12 @@ struct LoginView: View {
                 ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
                     .frame(width: 100, height: 100)
             }
+            .fullScreenCover(isPresented: $showPlayerDashboard, content: {
+                ContentView()
+            })
+            .fullScreenCover(isPresented: $showCoachDashboard, content: {
+                CoachTabBar()
+            })
             .alert(isPresented: $showsAlert, content: {
                 Alert(title: Text(alertMessage))
             })
@@ -90,7 +98,15 @@ struct LoginView: View {
                 showLoading = false
                 if error == nil {
                     UserManager.shared.activeUser = user
-                    isUserLoggedIn = true
+                    if user?.isProfileComplete == true {
+                        if user?.userType == UserType.player {
+                            showPlayerDashboard = true
+                        } else {
+                            showCoachDashboard = true
+                        }
+                    } else {
+                        showCompleteProfile = true
+                    }
                 } else {
                     alertMessage = error?.localizedDescription ?? "You have entered invalid credentials"
                     showsAlert = true
