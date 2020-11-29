@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityIndicatorView
 
 struct CoachPersonalInfoView: View {
     @State private var fullName: String = ""
@@ -17,6 +18,9 @@ struct CoachPersonalInfoView: View {
     @State private var showSportsList: Bool = false
     @State private var showsAlert = false
     @State private var alertMessage = ""
+    @State private var showLoading = false
+    
+    var user = UserManager.shared.activeUser
     
     var body: some View {
         ZStack {
@@ -51,10 +55,14 @@ struct CoachPersonalInfoView: View {
                         LoginTextField(text: $fullName, placeholder: "Full Name", imageName: "person")
                             .padding(.horizontal, 20)
                             .padding(.bottom, 10)
-                        LoginTextField(text: $hourlyRate, placeholder: "Hourly Rate", imageName: "dollarsign.circle")
-                            .keyboardType(.numberPad)
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 10)
+                        
+                        if let aUser = self.user, aUser.userType == .coach {
+                            LoginTextField(text: $hourlyRate, placeholder: "Hourly Rate", imageName: "dollarsign.circle")
+                                .keyboardType(.numberPad)
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 10)
+                        }
+                        
                         LoginTextField(text: $bio, placeholder: "About you", imageName: "highlighter")
                             .padding(.horizontal, 20)
                         
@@ -66,6 +74,8 @@ struct CoachPersonalInfoView: View {
                     }
                 }
             }
+            ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
+                .frame(width: 100, height: 100)
         }
         .navigationTitle("")
         .navigationBarHidden(navBarHidden)
@@ -78,17 +88,32 @@ struct CoachPersonalInfoView: View {
         if fullName.isEmpty {
             alertMessage = "Please enter your full name."
             showsAlert = true
-        } else if hourlyRate.isEmpty {
-            alertMessage = "Please enter your hourly rate."
-            showsAlert = true
-        } else if Double(hourlyRate) ?? 0.0 == 0.0 {
-            alertMessage = "Hourly rate should be greater then 0."
-            showsAlert = true
-        } else if bio.isEmpty {
+        }  else if bio.isEmpty {
             alertMessage = "About me cannot be blank."
             showsAlert = true
         } else {
-            showSportsList = true
+            if user?.userType == .coach {
+                 if hourlyRate.isEmpty {
+                    alertMessage = "Please enter your hourly rate."
+                    showsAlert = true
+                    return
+                } else if Double(hourlyRate) ?? 0.0 == 0.0 {
+                    alertMessage = "Hourly rate should be greater than 0."
+                    showsAlert = true
+                    return
+                }
+            }
+            hideKeyboard()
+            showLoading = true
+            user?.update(UserUpdateRequest(fullName: fullName, bio: bio, price: Double(hourlyRate), latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (success, error) in
+                showLoading = false
+                if error == nil {
+                    showSportsList = true
+                } else {
+                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                    showsAlert = true
+                }
+            })
         }
     }
 }

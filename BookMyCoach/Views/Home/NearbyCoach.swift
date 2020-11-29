@@ -42,23 +42,23 @@ struct CoachProfileCard: View {
     
     var body: some View {
         HStack {
-            KFImage(URL(string: coach.profilePhoto))
+            KFImage(URL(string: coach.profilePhoto ?? ""))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: screen.width / 3)
                 .clipped()
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(coach.name)
+                Text(coach.fullName)
                     .font(.title2)
                     .bold()
                     .padding(.top, 16)
                 
                 HStack {
-                    Image(coach.sport[0].icon)
+                    Image(coach.sport?[0].icon ?? "")
                         .resizable()
                         .frame(width: 20, height: 20)
-                    Text(coach.sport[0].name)
+                    Text(coach.sport?[0].name ?? "")
                 }
                 
                 HStack(spacing: 8) {

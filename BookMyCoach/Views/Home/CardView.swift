@@ -65,13 +65,13 @@ struct CoachProfileView: View {
     var body: some View {
         LazyVStack {
             HStack {
-                KFImage(URL(string: booking.coach.profilePhoto))
+                KFImage(URL(string: booking.coach.profilePhoto ?? ""))
                     .resizable()
                     .frame(width: 60, height: 60)
                     .cornerRadius(30)
                     .aspectRatio(contentMode: .fill)
                 VStack(alignment: .leading) {
-                    Text(booking.coach.name)
+                    Text(booking.coach.fullName)
                         .font(.title2)
                         .bold()
                     Text("Basket Ball")
@@ -84,7 +84,7 @@ struct CoachProfileView: View {
                     HStack(alignment: .top) {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
-                        Text(booking.coach.rating.description)
+                        Text(booking.coach.rating?.description ?? "5.0")
                             .bold()
                     }
                 }

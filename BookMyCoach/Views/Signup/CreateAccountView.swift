@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityIndicatorView
 
 struct CreateAccountView: View {
     @State private var email: String = ""
@@ -17,6 +18,7 @@ struct CreateAccountView: View {
     @State private var userType: UserType = UserType.player
     @State private var showsAlert = false
     @State private var alertMessage = ""
+    @State private var showLoading = false
     
     @Binding var isShowingSignup: Bool
     
@@ -74,6 +76,8 @@ struct CreateAccountView: View {
                     }
                 }
             }
+            ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
+                .frame(width: 100, height: 100)
         }
         .navigationTitle("")
         .navigationBarHidden(navBarHidden)
@@ -96,7 +100,18 @@ struct CreateAccountView: View {
             alertMessage = "Your password do not match."
             showsAlert = true
         } else {
-            showProfileView = true
+            showLoading = true
+            hideKeyboard()
+            User.register(UserRegisterRequest(fullName: "No name", email: email, password: password, userType: userType)) { (user, error) in
+                showLoading = false
+                if error == nil {
+                    UserManager.shared.activeUser = user
+                    showProfileView = true
+                } else {
+                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                    showsAlert = true
+                }
+            }
         }
     }
 }

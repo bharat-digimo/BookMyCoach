@@ -13,7 +13,6 @@ class UserManager: NSObject {
     private struct SerializationKeys {
         static let activeUser = "activeUser"
         static let accessToken = "com.bookmycoach.accessToken"
-
     }
     
     fileprivate var _activeUser: User?
@@ -34,6 +33,15 @@ class UserManager: NSObject {
         // Load last logged user data if exists
         if isLoggedInUser() {
             loadActiveUser()
+        }
+    }
+    
+    var accessToken: String? {
+        get {
+            return UserDefaults.standard.value(forKey: SerializationKeys.accessToken) as? String
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: SerializationKeys.accessToken)
         }
     }
     

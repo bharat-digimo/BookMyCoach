@@ -41,13 +41,13 @@ struct BookingInvitationCard: View {
     var body: some View {
         LazyVStack {
             HStack {
-                KFImage(URL(string: booking.coach.profilePhoto))
+                KFImage(URL(string: booking.coach.profilePhoto ?? ""))
                     .resizable()
                     .frame(width: 60, height: 60)
                     .cornerRadius(30)
                     .aspectRatio(contentMode: .fill)
                 VStack(alignment: .leading) {
-                    Text(booking.coach.name)
+                    Text(booking.coach.fullName)
                         .font(.title2)
                         .bold()
                     Text("24th Nov, 2020 at 09:30 AM")

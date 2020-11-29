@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 
 class SportViewModel: ObservableObject, Identifiable {
+    
     @Published var sport: Sport
     var isSelected = false
     
     init(sport: Sport) {
         self.sport = sport
     }
+    
 }

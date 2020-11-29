@@ -22,15 +22,15 @@ struct RadioButton: View {
             HStack {
                 if userType.rawValue.lowercased() == text.lowercased() {
                     Circle()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 15, height: 15)
                 } else {
                     Circle()
                         .stroke(Color.white)
-                        .frame(width: 20, height: 20)
+                        .frame(width: 15, height: 15)
                 }
                 
                 Text(text)
-                    .font(.title2)
+                    .font(.title3)
                     .bold()
                     .padding(.horizontal, 5)
             }
@@ -44,7 +44,7 @@ struct RadioButton: View {
                 }
             }
         })
-        .frame(width: 150, height: 35)
+        .frame(width: 150, height: 30)
     }
 }
 

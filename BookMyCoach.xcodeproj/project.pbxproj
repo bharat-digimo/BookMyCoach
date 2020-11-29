@@ -40,6 +40,26 @@
 		4F2D8E5B256C06FC001A14C3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E5A256C06FC001A14C3 /* CardView.swift */; };
 		4F2D8E5F256C082E001A14C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E5E256C082E001A14C3 /* User.swift */; };
 		4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E62256C0A57001A14C3 /* Booking.swift */; };
+		4FB6DD782573AC1B001304F3 /* DPRequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */; };
+		4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */; };
+		4FB6DD7A2573AC1B001304F3 /* DPRequestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */; };
+		4FB6DD7B2573AC1B001304F3 /* DPHTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6D2573AC1B001304F3 /* DPHTTPStatusCode.swift */; };
+		4FB6DD7C2573AC1B001304F3 /* DPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6E2573AC1B001304F3 /* DPRequestMethod.swift */; };
+		4FB6DD7D2573AC1B001304F3 /* DPRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6F2573AC1B001304F3 /* DPRequestBody.swift */; };
+		4FB6DD7E2573AC1B001304F3 /* DPRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD702573AC1B001304F3 /* DPRequestProtocol.swift */; };
+		4FB6DD7F2573AC1B001304F3 /* DPRequestBodyEncodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD712573AC1B001304F3 /* DPRequestBodyEncodeType.swift */; };
+		4FB6DD802573AC1B001304F3 /* DPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD722573AC1B001304F3 /* DPResponse.swift */; };
+		4FB6DD812573AC1B001304F3 /* DPLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD732573AC1B001304F3 /* DPLogger.swift */; };
+		4FB6DD822573AC1B001304F3 /* DPRequestProtocol+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD752573AC1B001304F3 /* DPRequestProtocol+Helper.swift */; };
+		4FB6DD832573AC1B001304F3 /* DPRequestProtocol+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD762573AC1B001304F3 /* DPRequestProtocol+Service.swift */; };
+		4FB6DD842573AC1B001304F3 /* URLRequest+PrepareBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD772573AC1B001304F3 /* URLRequest+PrepareBody.swift */; };
+		4FB6DD8E2573AC46001304F3 /* APIService+RequestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD892573AC46001304F3 /* APIService+RequestPath.swift */; };
+		4FB6DD8F2573AC46001304F3 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD8A2573AC46001304F3 /* APIService.swift */; };
+		4FB6DD902573AC46001304F3 /* APIService+RequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD8B2573AC46001304F3 /* APIService+RequestBody.swift */; };
+		4FB6DD962573AF7C001304F3 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD952573AF7C001304F3 /* UserRequest.swift */; };
+		4FB6DD9B2573B225001304F3 /* CoachRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD9A2573B225001304F3 /* CoachRequest.swift */; };
+		4FB6DDA22573BCFC001304F3 /* DPBaseAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */; };
+		4FB6DDA62573C281001304F3 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB6DDA52573C281001304F3 /* ActivityIndicatorView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +97,25 @@
 		4F2D8E5A256C06FC001A14C3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		4F2D8E5E256C082E001A14C3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4F2D8E62256C0A57001A14C3 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
+		4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestConnection.swift; sourceTree = "<group>"; };
+		4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestConnectionConfiguration.swift; sourceTree = "<group>"; };
+		4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestPath.swift; sourceTree = "<group>"; };
+		4FB6DD6D2573AC1B001304F3 /* DPHTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPHTTPStatusCode.swift; sourceTree = "<group>"; };
+		4FB6DD6E2573AC1B001304F3 /* DPRequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestMethod.swift; sourceTree = "<group>"; };
+		4FB6DD6F2573AC1B001304F3 /* DPRequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestBody.swift; sourceTree = "<group>"; };
+		4FB6DD702573AC1B001304F3 /* DPRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestProtocol.swift; sourceTree = "<group>"; };
+		4FB6DD712573AC1B001304F3 /* DPRequestBodyEncodeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestBodyEncodeType.swift; sourceTree = "<group>"; };
+		4FB6DD722573AC1B001304F3 /* DPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPResponse.swift; sourceTree = "<group>"; };
+		4FB6DD732573AC1B001304F3 /* DPLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPLogger.swift; sourceTree = "<group>"; };
+		4FB6DD752573AC1B001304F3 /* DPRequestProtocol+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPRequestProtocol+Helper.swift"; sourceTree = "<group>"; };
+		4FB6DD762573AC1B001304F3 /* DPRequestProtocol+Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPRequestProtocol+Service.swift"; sourceTree = "<group>"; };
+		4FB6DD772573AC1B001304F3 /* URLRequest+PrepareBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+PrepareBody.swift"; sourceTree = "<group>"; };
+		4FB6DD892573AC46001304F3 /* APIService+RequestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIService+RequestPath.swift"; sourceTree = "<group>"; };
+		4FB6DD8A2573AC46001304F3 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		4FB6DD8B2573AC46001304F3 /* APIService+RequestBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIService+RequestBody.swift"; sourceTree = "<group>"; };
+		4FB6DD952573AF7C001304F3 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		4FB6DD9A2573B225001304F3 /* CoachRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachRequest.swift; sourceTree = "<group>"; };
+		4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPBaseAPIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB6DDA62573C281001304F3 /* ActivityIndicatorView in Frameworks */,
 				4F0DC43E256C1B2C002F2364 /* KingfisherSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +211,7 @@
 				4F2D8E5D256C0762001A14C3 /* Models */,
 				4F0337282572609700F1BF18 /* ViewModel */,
 				4F03373B257299E000F1BF18 /* Managers */,
+				4FB6DD642573ABB9001304F3 /* Utilities */,
 				4F2D8E43256BD503001A14C3 /* Assets.xcassets */,
 				4F2D8E48256BD503001A14C3 /* Info.plist */,
 				4F2D8E45256BD503001A14C3 /* Preview Content */,
@@ -235,6 +276,80 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4FB6DD642573ABB9001304F3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD862573AC46001304F3 /* APIService */,
+				4FB6DD672573AC00001304F3 /* RequestConnection */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4FB6DD672573AC00001304F3 /* RequestConnection */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD682573AC1A001304F3 /* Connection */,
+				4FB6DD742573AC1B001304F3 /* Helpers */,
+				4FB6DD6B2573AC1B001304F3 /* Models */,
+			);
+			path = RequestConnection;
+			sourceTree = "<group>";
+		};
+		4FB6DD682573AC1A001304F3 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */,
+				4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		4FB6DD6B2573AC1B001304F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */,
+				4FB6DD6D2573AC1B001304F3 /* DPHTTPStatusCode.swift */,
+				4FB6DD6E2573AC1B001304F3 /* DPRequestMethod.swift */,
+				4FB6DD6F2573AC1B001304F3 /* DPRequestBody.swift */,
+				4FB6DD702573AC1B001304F3 /* DPRequestProtocol.swift */,
+				4FB6DD712573AC1B001304F3 /* DPRequestBodyEncodeType.swift */,
+				4FB6DD722573AC1B001304F3 /* DPResponse.swift */,
+				4FB6DD732573AC1B001304F3 /* DPLogger.swift */,
+				4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4FB6DD742573AC1B001304F3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD752573AC1B001304F3 /* DPRequestProtocol+Helper.swift */,
+				4FB6DD762573AC1B001304F3 /* DPRequestProtocol+Service.swift */,
+				4FB6DD772573AC1B001304F3 /* URLRequest+PrepareBody.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4FB6DD862573AC46001304F3 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD942573AF5F001304F3 /* Requests */,
+				4FB6DD8A2573AC46001304F3 /* APIService.swift */,
+				4FB6DD892573AC46001304F3 /* APIService+RequestPath.swift */,
+				4FB6DD8B2573AC46001304F3 /* APIService+RequestBody.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		4FB6DD942573AF5F001304F3 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				4FB6DD952573AF7C001304F3 /* UserRequest.swift */,
+				4FB6DD9A2573B225001304F3 /* CoachRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +368,7 @@
 			name = BookMyCoach;
 			packageProductDependencies = (
 				4F0DC43D256C1B2C002F2364 /* KingfisherSwiftUI */,
+				4FB6DDA52573C281001304F3 /* ActivityIndicatorView */,
 			);
 			productName = BookMyCoach;
 			productReference = 4F2D8E3C256BD500001A14C3 /* BookMyCoach.app */;
@@ -283,6 +399,7 @@
 			mainGroup = 4F2D8E33256BD500001A14C3;
 			packageReferences = (
 				4F0DC43C256C1B2B002F2364 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4FB6DDA42573C281001304F3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = 4F2D8E3D256BD500001A14C3 /* Products */;
 			projectDirPath = "";
@@ -310,34 +427,53 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB6DD7B2573AC1B001304F3 /* DPHTTPStatusCode.swift in Sources */,
+				4FB6DD822573AC1B001304F3 /* DPRequestProtocol+Helper.swift in Sources */,
 				329C39F0256D10D600B69E17 /* RecentBooking.swift in Sources */,
 				4F0337332572663A00F1BF18 /* Extensions.swift in Sources */,
+				4FB6DD9B2573B225001304F3 /* CoachRequest.swift in Sources */,
 				4F0337232572574100F1BF18 /* CoachPersonalInfoView.swift in Sources */,
 				329C39DF256CC8C300B69E17 /* Sport.swift in Sources */,
+				4FB6DD962573AF7C001304F3 /* UserRequest.swift in Sources */,
 				4F03372A257260AF00F1BF18 /* SportViewModel.swift in Sources */,
 				329C39ED256D0FB300B69E17 /* SessionCardView.swift in Sources */,
+				4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */,
 				329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */,
 				4F2D8E42256BD500001A14C3 /* ContentView.swift in Sources */,
 				4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */,
 				4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */,
 				4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */,
+				4FB6DD7C2573AC1B001304F3 /* DPRequestMethod.swift in Sources */,
 				4F0337512572B63D00F1BF18 /* LoginBottomView.swift in Sources */,
 				4F2D8E50256BD8C1001A14C3 /* PlayerHome.swift in Sources */,
 				4F03372625725D1D00F1BF18 /* SportsListView.swift in Sources */,
+				4FB6DD902573AC46001304F3 /* APIService+RequestBody.swift in Sources */,
+				4FB6DD802573AC1B001304F3 /* DPResponse.swift in Sources */,
+				4FB6DD7D2573AC1B001304F3 /* DPRequestBody.swift in Sources */,
 				4F03374B2572B5BB00F1BF18 /* LoginTextField.swift in Sources */,
+				4FB6DDA22573BCFC001304F3 /* DPBaseAPIResponse.swift in Sources */,
 				329C39EA256D0DCC00B69E17 /* CoachHome.swift in Sources */,
+				4FB6DD7E2573AC1B001304F3 /* DPRequestProtocol.swift in Sources */,
+				4FB6DD782573AC1B001304F3 /* DPRequestConnection.swift in Sources */,
 				4F0337112572225E00F1BF18 /* LoginView.swift in Sources */,
 				329C39E2256CD32800B69E17 /* NearbyCoach.swift in Sources */,
 				4F0337182572318A00F1BF18 /* Colors.swift in Sources */,
 				4F2D8E57256BD964001A14C3 /* HeaderView.swift in Sources */,
 				4F03374125729A0300F1BF18 /* UserManager.swift in Sources */,
 				4F03371B257235CC00F1BF18 /* CreateAccountView.swift in Sources */,
+				4FB6DD7A2573AC1B001304F3 /* DPRequestPath.swift in Sources */,
 				4F03371E2572476900F1BF18 /* RadioButton.swift in Sources */,
 				329C39DC256CC66200B69E17 /* SportsList.swift in Sources */,
+				4FB6DD7F2573AC1B001304F3 /* DPRequestBodyEncodeType.swift in Sources */,
 				4F2D8E5F256C082E001A14C3 /* User.swift in Sources */,
+				4FB6DD8E2573AC46001304F3 /* APIService+RequestPath.swift in Sources */,
 				4F03373825726C9500F1BF18 /* ImagePickerView.swift in Sources */,
 				4F03371525722D8600F1BF18 /* PlaceHolderStyle.swift in Sources */,
+				4FB6DD832573AC1B001304F3 /* DPRequestProtocol+Service.swift in Sources */,
+				4FB6DD8F2573AC46001304F3 /* APIService.swift in Sources */,
 				4F03374E2572B61500F1BF18 /* RoundedButton.swift in Sources */,
+				4FB6DD842573AC1B001304F3 /* URLRequest+PrepareBody.swift in Sources */,
+				4FB6DD812573AC1B001304F3 /* DPLogger.swift in Sources */,
 				329C39D7256C17FA00B69E17 /* GlobalHelper.swift in Sources */,
 				4F2D8E5B256C06FC001A14C3 /* CardView.swift in Sources */,
 			);
@@ -538,6 +674,14 @@
 				minimumVersion = 5.15.7;
 			};
 		};
+		4FB6DDA42573C281001304F3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -545,6 +689,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F0DC43C256C1B2B002F2364 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
+		};
+		4FB6DDA52573C281001304F3 /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FB6DDA42573C281001304F3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

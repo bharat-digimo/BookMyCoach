@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityIndicatorView
 
 struct LoginView: View {
     @State private var email: String = ""
@@ -14,6 +15,7 @@ struct LoginView: View {
     @State private var isUserLoggedIn = false
     @State private var showsAlert = false
     @State private var alertMessage = ""
+    @State private var showLoading = false
         
     init() {
         //Use this if NavigationBarTitle is with Large Font
@@ -54,14 +56,18 @@ struct LoginView: View {
                             }
                             
                             NavigationLink(destination: CreateAccountView(isShowingSignup: $isShowingSignupView), isActive: $isShowingSignupView) { EmptyView() }
+                            
+                            Spacer().frame(height: 20)
+                            
                             LoginBottomView(message: "First time here?", buttonTitle: "Signup") {
                                 isShowingSignupView = true
                             }
                         }
                         .padding(.top, 100)
                     }
-                    
                 }
+                ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
+                    .frame(width: 100, height: 100)
             }
             .alert(isPresented: $showsAlert, content: {
                 Alert(title: Text(alertMessage))
@@ -78,7 +84,18 @@ struct LoginView: View {
             alertMessage = "Please enter your password"
             showsAlert = true
         } else {
-            isUserLoggedIn = true
+            showLoading = true
+            hideKeyboard()
+            User.login(UserLoginRequest(email: email, password: password)) { (user, error) in
+                showLoading = false
+                if error == nil {
+                    UserManager.shared.activeUser = user
+                    isUserLoggedIn = true
+                } else {
+                    alertMessage = error?.localizedDescription ?? "You have entered invalid credentials"
+                    showsAlert = true
+                }
+            }
         }
     }
 }
