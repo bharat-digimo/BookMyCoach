@@ -9,7 +9,7 @@ import Foundation
 
 struct User: Codable {
     var id: Int
-    var fullName: String
+    var fullName: String?
     var email: String
     var profilePhoto: String?
     var bio: String?
@@ -58,7 +58,7 @@ extension User {
         }
     }
     
-    func nearbyCoach(_ request: NearbyCoachRequest, handler: @escaping ([User]?, Error?) -> ()) {
+    static func nearbyCoach(_ request: NearbyCoachRequest, handler: @escaping ([User]?, Error?) -> ()) {
         let service = APIService.getNearbyCoaches(request: request)
         service.fetchList(User.self) { (list, error, _) in
             handler(list, error)

@@ -71,7 +71,7 @@ struct CoachProfileView: View {
                     .cornerRadius(30)
                     .aspectRatio(contentMode: .fill)
                 VStack(alignment: .leading) {
-                    Text(booking.coach.fullName)
+                    Text(booking.coach.fullName ?? "")
                         .font(.title2)
                         .bold()
                     Text("Basket Ball")

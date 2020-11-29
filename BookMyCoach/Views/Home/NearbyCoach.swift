@@ -13,7 +13,7 @@ struct NearbyCoach: View {
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 12)
     ]
-    var coaches: [User]
+    @State var coaches: [User] = []
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
@@ -22,6 +22,13 @@ struct NearbyCoach: View {
             }
         }
         .foregroundColor(.white)
+        .onAppear(perform: {
+            User.nearbyCoach(NearbyCoachRequest(latitude: 0, longitude: 0)) { (list, error) in
+                if error == nil {
+                    coaches = list ?? []
+                }
+            }
+        })
     }
 }
 
@@ -49,7 +56,7 @@ struct CoachProfileCard: View {
                 .clipped()
             
             VStack(alignment: .leading, spacing: 8) {
-                Text(coach.fullName)
+                Text(coach.fullName ?? "")
                     .font(.title2)
                     .bold()
                     .padding(.top, 16)

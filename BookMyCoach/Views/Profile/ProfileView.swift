@@ -43,7 +43,7 @@ struct ProfileView: View {
                             .aspectRatio(contentMode: .fill)
                             .overlay(Circle().stroke(Color.white, lineWidth: 3.0))
                             .padding()
-                        Text(user.fullName)
+                        Text(user.fullName ?? "")
                             .font(.title)
                             .bold()
                         HStack {
