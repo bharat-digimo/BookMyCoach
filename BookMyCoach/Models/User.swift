@@ -20,7 +20,7 @@ struct User: Codable {
     var rating: Float = 0.0
 }
 
-enum UserType: Int, Codable {
+enum UserType: String, Codable {
     case coach
     case player
 }

@@ -22,6 +22,7 @@ struct LoginTextField: View {
                 if !isSecure {
                     TextField(placeholder, text: $text)
                         .padding()
+                        .autocapitalization(.none)
                         .foregroundColor(.white)
                         .modifier(PlaceholderStyle(showPlaceHolder: text.isEmpty,
                                                    placeholder: placeholder))
@@ -29,6 +30,7 @@ struct LoginTextField: View {
                     SecureField(placeholder, text: $text)
                         .padding()
                         .foregroundColor(.white)
+                        .autocapitalization(.none)
                         .modifier(PlaceholderStyle(showPlaceHolder: text.isEmpty,
                                                    placeholder: placeholder))
                 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct SportsListView: View {
     
     var viewModels: [SportViewModel] = allSports.map({ SportViewModel(sport: $0) })
-    
+    @State private var navBarHidden: Bool = true
     func image(for state: Bool) -> Image {
         return state ? Image(systemName: "checkmark.circle") : Image(systemName: "circle")
     }
@@ -25,7 +25,7 @@ struct SportsListView: View {
                         .bold()
                         .foregroundColor(.white)
                         .padding()
-                    
+
                     Spacer()
                 }
                 
@@ -56,6 +56,8 @@ struct SportsListView: View {
                 RoundedButton(text: "Next")
             }
         }
+        .navigationTitle("")
+        .navigationBarHidden(navBarHidden)
     }
 }
 

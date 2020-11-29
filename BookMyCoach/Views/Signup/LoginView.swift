@@ -11,7 +11,10 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isShowingSignupView = false
-    @State private var isUserLogedIn = false
+    @State private var isUserLoggedIn = false
+    @State private var showsAlert = false
+    @State private var alertMessage = ""
+        
     init() {
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -24,7 +27,7 @@ struct LoginView: View {
             ZStack {
                 Color.themeBackground.edgesIgnoringSafeArea(.all)
                 
-                VStack() {
+                VStack {
                     
                     HStack {
                         Text("Login")
@@ -38,15 +41,16 @@ struct LoginView: View {
                     ScrollView {
                         VStack {
                             LoginTextField(text: $email, placeholder: "Email", imageName: "envelope")
+                                .keyboardType(.emailAddress)
                                 .padding()
                             
                             LoginTextField(text: $password, placeholder: "Password", imageName: "lock", isSecure: true)
                                 .padding()
                             
                             Spacer().frame(height: 60)
-                            NavigationLink(destination: Text("Dashboard"), isActive: $isUserLogedIn) { EmptyView() }
+                            NavigationLink(destination: Text("Dashboard"), isActive: $isUserLoggedIn) { EmptyView() }
                             RoundedButton(text: "Login") {
-                                isUserLogedIn = true
+                                loginTapped()
                             }
                             
                             NavigationLink(destination: CreateAccountView(isShowingSignup: $isShowingSignupView), isActive: $isShowingSignupView) { EmptyView() }
@@ -57,10 +61,24 @@ struct LoginView: View {
                         .padding(.top, 100)
                     }
                     
-                    
                 }
             }
+            .alert(isPresented: $showsAlert, content: {
+                Alert(title: Text(alertMessage))
+            })
             .navigationBarHidden(true)
+        }
+    }
+    
+    private func loginTapped() {
+        if email.isEmpty {
+            alertMessage = "Please enter email"
+            showsAlert = true
+        } else if password.isEmpty {
+            alertMessage = "Please enter your password"
+            showsAlert = true
+        } else {
+            isUserLoggedIn = true
         }
     }
 }

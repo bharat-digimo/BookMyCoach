@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PlaceholderStyle: ViewModifier {
+    
     var showPlaceHolder: Bool
     var placeholder: String
     
