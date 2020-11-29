@@ -105,7 +105,7 @@ struct CoachPersonalInfoView: View {
             }
             hideKeyboard()
             showLoading = true
-            user?.update(UserUpdateRequest(fullName: fullName, bio: bio, price: Double(hourlyRate), latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (user, error) in
+            UserManager.shared.activeUser?.update(UserUpdateRequest(fullName: fullName, bio: bio, price: Double(hourlyRate), latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (user, error) in
                 showLoading = false
                 if error == nil {
                     UserManager.shared.activeUser = user
