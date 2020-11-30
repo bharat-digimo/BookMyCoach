@@ -25,6 +25,8 @@ extension APIService {
             return DPRequestPath(method: .DELETE, endPoint: "/user/logout")
         case .changePassword:
             return DPRequestPath(method: .PATCH, endPoint: "/user/changePassword")
+        case .updateSports:
+            return DPRequestPath(method: .PUT, endPoint: "/user/sports")
         }
     }
     

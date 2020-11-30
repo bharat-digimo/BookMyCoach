@@ -34,3 +34,12 @@ struct UpdatePasswordRequest: Codable {
     var oldPassword: String
     var newPassword: String
 }
+
+struct UpdateSportsRequest: Codable {
+    var sports: [SportRequest]
+    
+    struct SportRequest: Codable {
+        var sportId: Int
+        var isPrimary: Bool
+    }
+}

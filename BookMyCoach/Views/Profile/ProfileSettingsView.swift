@@ -76,7 +76,7 @@ struct ProfileSettingsView: View {
                 .frame(width: 100, height: 100)
         }
         .onDisappear(perform: {
-            EmptyView()
+           _ =  EmptyView() // a little trick to correct the back button title animation
         })
         .fullScreenCover(isPresented: $showLoginView, content: {
             LoginView()

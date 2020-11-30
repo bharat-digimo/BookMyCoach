@@ -49,9 +49,9 @@ struct SportsListView: View {
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.white)
                                     .padding()
-                                    .onTapGesture {
-                                    //
-                                }
+                            }
+                            .onTapGesture {
+                                vm.isSelected.toggle()
                             }
                             .padding()
                         }

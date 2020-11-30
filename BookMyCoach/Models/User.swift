@@ -83,4 +83,11 @@ extension User {
         }
     }
     
+    func updateSport(_ sport: Sport, _ handler: @escaping (Bool, Error?)-> ()) {
+        let service = APIService.updateSports(request: UpdateSportsRequest(sports: [UpdateSportsRequest.SportRequest(sportId: sport.id, isPrimary: true)]))
+        service.submit { response in
+            handler(response.isSuccess, response.error)
+        }
+    }
+    
 }

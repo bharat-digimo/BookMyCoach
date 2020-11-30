@@ -78,7 +78,7 @@ struct PersonalInfoView: View {
                             .padding(.horizontal, 20)
                             .padding(.bottom, 10)
                         
-                        if let aUser = self.user, aUser.userType == .coach {
+                        if let aUser = UserManager.shared.activeUser, aUser.userType == .coach {
                             LoginTextField(text: $hourlyRate, placeholder: "Hourly Rate", imageName: "dollarsign.circle")
                                 .keyboardType(.numberPad)
                                 .padding(.horizontal, 20)
@@ -90,7 +90,7 @@ struct PersonalInfoView: View {
                         
                         Spacer().frame(height: 40)
                         NavigationLink(destination: SportsListView(), isActive: $showSportsList) { EmptyView() }
-                        RoundedButton(text: "Next") {
+                        RoundedButton(text: viewType == .create ? "Next" : "Update") {
                             nextTapped()
                         }
                     }
