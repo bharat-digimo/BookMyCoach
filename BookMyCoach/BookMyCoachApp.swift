@@ -21,7 +21,7 @@ struct BookMyCoachApp: App {
                     ContentView()
                 } else {
                     NavigationView {
-                        CoachPersonalInfoView()
+                        PersonalInfoView()
                             .navigationBarHidden(true)
                     }
                 }

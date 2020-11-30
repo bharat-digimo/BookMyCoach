@@ -21,6 +21,8 @@ extension APIService {
             return DPRequestPath(method: .GET, endPoint: "/user")
         case .getNearbyCoaches:
             return DPRequestPath(method: .GET, endPoint: "/coach/nearby")
+        case .logout:
+            return DPRequestPath(method: .DELETE, endPoint: "/user/logout")
         }
     }
     

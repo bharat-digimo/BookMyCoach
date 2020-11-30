@@ -65,4 +65,15 @@ extension User {
         }
     }
     
+    func logout(_ handler: @escaping (Bool, Error?)-> ()) {
+        let service = APIService.logout
+        service.submit { response in
+            if response.isSuccess {
+                UserManager.shared.deleteActiveUser()
+                UserManager.shared.accessToken = nil
+            }
+            handler(response.isSuccess, response.error)
+        }
+    }
+    
 }

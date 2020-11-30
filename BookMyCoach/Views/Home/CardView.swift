@@ -33,12 +33,13 @@ struct CardView: View {
                                 .padding()
                                 Spacer()
                             }
-                        }.clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     }
                     .padding(.all, 10)
                 }
                 .frame(width: UIScreen.main.bounds.width, height: 200)
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                 .foregroundColor(.white)
             }
         }

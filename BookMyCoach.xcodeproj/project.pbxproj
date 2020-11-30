@@ -20,7 +20,7 @@
 		4F0337182572318A00F1BF18 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0337172572318A00F1BF18 /* Colors.swift */; };
 		4F03371B257235CC00F1BF18 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03371A257235CC00F1BF18 /* CreateAccountView.swift */; };
 		4F03371E2572476900F1BF18 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03371D2572476900F1BF18 /* RadioButton.swift */; };
-		4F0337232572574100F1BF18 /* CoachPersonalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0337222572574100F1BF18 /* CoachPersonalInfoView.swift */; };
+		4F0337232572574100F1BF18 /* PersonalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0337222572574100F1BF18 /* PersonalInfoView.swift */; };
 		4F03372625725D1D00F1BF18 /* SportsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03372525725D1D00F1BF18 /* SportsListView.swift */; };
 		4F03372A257260AF00F1BF18 /* SportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F033729257260AF00F1BF18 /* SportViewModel.swift */; };
 		4F0337332572663A00F1BF18 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0337322572663A00F1BF18 /* Extensions.swift */; };
@@ -60,6 +60,7 @@
 		4FB6DD9B2573B225001304F3 /* CoachRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD9A2573B225001304F3 /* CoachRequest.swift */; };
 		4FB6DDA22573BCFC001304F3 /* DPBaseAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */; };
 		4FB6DDA62573C281001304F3 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB6DDA52573C281001304F3 /* ActivityIndicatorView */; };
+		4FB6DDB22574FCFB001304F3 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDB12574FCFB001304F3 /* ProfileSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +77,7 @@
 		4F0337172572318A00F1BF18 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4F03371A257235CC00F1BF18 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		4F03371D2572476900F1BF18 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
-		4F0337222572574100F1BF18 /* CoachPersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachPersonalInfoView.swift; sourceTree = "<group>"; };
+		4F0337222572574100F1BF18 /* PersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoView.swift; sourceTree = "<group>"; };
 		4F03372525725D1D00F1BF18 /* SportsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsListView.swift; sourceTree = "<group>"; };
 		4F033729257260AF00F1BF18 /* SportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportViewModel.swift; sourceTree = "<group>"; };
 		4F0337322572663A00F1BF18 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		4FB6DD952573AF7C001304F3 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		4FB6DD9A2573B225001304F3 /* CoachRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachRequest.swift; sourceTree = "<group>"; };
 		4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPBaseAPIResponse.swift; sourceTree = "<group>"; };
+		4FB6DDB12574FCFB001304F3 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +148,7 @@
 			children = (
 				4F0337102572225E00F1BF18 /* LoginView.swift */,
 				4F03371A257235CC00F1BF18 /* CreateAccountView.swift */,
-				4F0337222572574100F1BF18 /* CoachPersonalInfoView.swift */,
+				4F0337222572574100F1BF18 /* PersonalInfoView.swift */,
 				4F03372525725D1D00F1BF18 /* SportsListView.swift */,
 			);
 			path = Signup;
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4F0DC463256D143A002F2364 /* ProfileView.swift */,
+				4FB6DDB12574FCFB001304F3 /* ProfileSettingsView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -432,7 +435,7 @@
 				329C39F0256D10D600B69E17 /* RecentBooking.swift in Sources */,
 				4F0337332572663A00F1BF18 /* Extensions.swift in Sources */,
 				4FB6DD9B2573B225001304F3 /* CoachRequest.swift in Sources */,
-				4F0337232572574100F1BF18 /* CoachPersonalInfoView.swift in Sources */,
+				4F0337232572574100F1BF18 /* PersonalInfoView.swift in Sources */,
 				329C39DF256CC8C300B69E17 /* Sport.swift in Sources */,
 				4FB6DD962573AF7C001304F3 /* UserRequest.swift in Sources */,
 				4F03372A257260AF00F1BF18 /* SportViewModel.swift in Sources */,
@@ -440,6 +443,7 @@
 				4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */,
 				329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */,
 				4F2D8E42256BD500001A14C3 /* ContentView.swift in Sources */,
+				4FB6DDB22574FCFB001304F3 /* ProfileSettingsView.swift in Sources */,
 				4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */,
 				4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */,
 				4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */,
@@ -603,6 +607,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookMyCoach/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K4LP62M5S;
@@ -613,8 +618,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.digimoplus.BookMyCoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digimoplusllp.BookMyCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -625,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookMyCoach/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K4LP62M5S;
@@ -635,8 +642,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.digimoplus.BookMyCoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digimoplusllp.BookMyCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

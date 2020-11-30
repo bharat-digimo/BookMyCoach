@@ -1,5 +1,5 @@
 //
-//  CoachPersonalInfoView.swift
+//  PersonalInfoView.swift
 //  BookMyCoach
 //
 //  Created by Bharat Lal on 11/28/20.
@@ -8,7 +8,14 @@
 import SwiftUI
 import ActivityIndicatorView
 
-struct CoachPersonalInfoView: View {
+struct PersonalInfoView: View {
+    
+    enum ViewType {
+        case create
+        case edit
+    }
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     @State private var fullName: String = ""
     @State private var hourlyRate: String = ""
     @State private var bio: String = ""
@@ -19,23 +26,38 @@ struct CoachPersonalInfoView: View {
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
-    
+        
     var user = UserManager.shared.activeUser
+    var viewType: ViewType = .create
+    var titleText = ""
+    
+    init(viewType: ViewType = .create) {
+        self.viewType = viewType
+        if viewType == .edit {
+            self._fullName = State(wrappedValue: user?.fullName ?? "")
+            self._hourlyRate =  State(wrappedValue: user?.price?.description ?? "")
+            self._bio =  State(wrappedValue: user?.bio ?? "")
+            self._navBarHidden = State(wrappedValue: self.viewType == .create)
+            self.titleText = "Edit profile"
+        }
+    }
     
     var body: some View {
         ZStack {
             Color.themeBackground.edgesIgnoringSafeArea(.all)
             VStack {
-                HStack {
-                    Text("Tell us more about you.")
-                        .font(.system(size: 42, weight: .bold))
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding()
-                    
-                    Spacer()
+                if viewType == .create {
+                    HStack {
+                        Text("Tell us more about you.")
+                            .font(.system(size: 42, weight: .bold))
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding()
+                        
+                        Spacer()
+                    }
                 }
-                
+
                 ScrollView {
                     VStack {
                         HStack {
@@ -72,12 +94,13 @@ struct CoachPersonalInfoView: View {
                             nextTapped()
                         }
                     }
+                    .padding(.top, 20)
                 }
             }
             ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
                 .frame(width: 100, height: 100)
         }
-        .navigationTitle("")
+        .navigationTitle(titleText)
         .navigationBarHidden(navBarHidden)
         .alert(isPresented: $showsAlert, content: {
             Alert(title: Text(alertMessage))
@@ -109,7 +132,11 @@ struct CoachPersonalInfoView: View {
                 showLoading = false
                 if error == nil {
                     UserManager.shared.activeUser = user
-                    showSportsList = true
+                    if viewType == .create {
+                        showSportsList = true
+                    } else {
+                        self.mode.wrappedValue.dismiss()
+                    }
                 } else {
                     alertMessage = error?.localizedDescription ?? "Something went wrong!!"
                     showsAlert = true
@@ -121,6 +148,6 @@ struct CoachPersonalInfoView: View {
 
 struct CoachPersonalInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        CoachPersonalInfoView()
+        PersonalInfoView()
     }
 }

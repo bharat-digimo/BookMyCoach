@@ -17,7 +17,7 @@ extension APIService {
             return DPRequestBody(model: user)
         case let .updateUser(request):
             return DPRequestBody(model: request)
-        case .getUserProfile:
+        case .getUserProfile, .logout:
             return DPRequestBody()
         case let .getNearbyCoaches(request):
             return DPRequestBody(model: request)

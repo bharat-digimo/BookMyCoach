@@ -26,7 +26,7 @@ struct CreateAccountView: View {
         ZStack {
             Color.themeBackground.edgesIgnoringSafeArea(.all)
             
-            VStack() {
+            VStack {
                 
                 HStack {
                     Text("New\nAccount")
@@ -64,7 +64,7 @@ struct CreateAccountView: View {
                         
                         Spacer().frame(height: 60)
                         
-                        NavigationLink(destination: CoachPersonalInfoView(), isActive: $showProfileView) { EmptyView() }
+                        NavigationLink(destination: PersonalInfoView(), isActive: $showProfileView) { EmptyView() }
                         RoundedButton(text: "Next") {
                             nextTapped()
                         }

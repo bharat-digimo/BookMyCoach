@@ -33,7 +33,9 @@ struct SportsListView: View {
                 
                 ScrollView {
                     VStack() {
-                        ForEach(allSports, id:\.self) { sport in
+                        ForEach(0..<viewModels.count, id:\.self) { index in
+                            let vm = viewModels[index]
+                            let sport = vm.sport
                             HStack {
                                 Image(sport.icon)
                                     .padding(.horizontal, 12)
@@ -42,7 +44,7 @@ struct SportsListView: View {
                                     .bold()
                                     .foregroundColor(.white)
                                 Spacer()
-                                self.image(for: true)
+                                self.image(for: vm.isSelected)
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.white)

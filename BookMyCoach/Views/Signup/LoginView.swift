@@ -52,7 +52,7 @@ struct LoginView: View {
                                 .padding()
                             
                             Spacer().frame(height: 60)
-                            NavigationLink(destination: CoachPersonalInfoView(), isActive: $showCompleteProfile) { EmptyView() }
+                            NavigationLink(destination: PersonalInfoView(), isActive: $showCompleteProfile) { EmptyView() }
                             RoundedButton(text: "Login") {
                                 loginTapped()
                             }
