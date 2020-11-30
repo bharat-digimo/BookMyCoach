@@ -10,8 +10,10 @@ import SwiftUI
 struct SportsListView: View {
     
     var viewModels: [SportViewModel] = allSports.map({ SportViewModel(sport: $0) })
+    
     @State private var navBarHidden: Bool = true
     @State private var showContentView: Bool = false
+    @State private var selectedSport: Sport? = nil
     
     func image(for state: Bool) -> Image {
         return state ? Image(systemName: "checkmark.circle") : Image(systemName: "circle")
@@ -44,14 +46,14 @@ struct SportsListView: View {
                                     .bold()
                                     .foregroundColor(.white)
                                 Spacer()
-                                self.image(for: vm.isSelected)
+                                self.image(for: (vm.sport.id == selectedSport?.id))
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.white)
                                     .padding()
                             }
                             .onTapGesture {
-                                vm.isSelected.toggle()
+                                selectedSport = vm.sport
                             }
                             .padding()
                         }

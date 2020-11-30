@@ -11,7 +11,7 @@ import SwiftUI
 class SportViewModel: ObservableObject, Identifiable {
     
     var sport: Sport
-    @Published var isSelected = false
+    var isSelected = false
     
     init(sport: Sport) {
         self.sport = sport
