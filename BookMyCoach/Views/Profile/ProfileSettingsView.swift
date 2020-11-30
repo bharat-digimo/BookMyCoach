@@ -27,7 +27,7 @@ struct ProfileSettingsView: View {
                         }
                     }
                     
-                    NavigationLink(destination: Text("Change Password")) {
+                    NavigationLink(destination: ChangePasswordView()) {
                         HStack {
                             Text("Change Password")
                             Spacer()
@@ -57,7 +57,7 @@ struct ProfileSettingsView: View {
                         Text("Logout")
                             .font(.title3)
                             .bold()
-                            .foregroundColor(.red)
+                            .foregroundColor(.white)
                     })
                     .alert(isPresented:$showAlert) {
                         Alert(title: Text("Logout"), message: Text("Are you sure you want to logout?"), primaryButton: .destructive(Text("Logout")) {
@@ -75,6 +75,9 @@ struct ProfileSettingsView: View {
             ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
                 .frame(width: 100, height: 100)
         }
+        .onDisappear(perform: {
+            EmptyView()
+        })
         .fullScreenCover(isPresented: $showLoginView, content: {
             LoginView()
         })

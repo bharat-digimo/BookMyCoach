@@ -12,6 +12,7 @@ struct LoginTextField: View {
     var placeholder: String
     var imageName: String
     var isSecure: Bool = false
+    var includeUnderline = true
     var body: some View {
         VStack {
             HStack {
@@ -36,8 +37,10 @@ struct LoginTextField: View {
                 }
                 
             }
-            Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
-                .padding(.horizontal, 10)
+            if includeUnderline {
+                Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
+                    .padding(.horizontal, 10)
+            }
         }
     }
 }

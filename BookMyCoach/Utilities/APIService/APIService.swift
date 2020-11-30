@@ -15,6 +15,7 @@ enum APIService: DPRequestProtocol {
     case getUserProfile
     case getNearbyCoaches(request: NearbyCoachRequest)
     case logout
+    case changePassword(request: UpdatePasswordRequest)
     
     func baseUrl() -> String? {
         return "http://52.66.24.50:5000/api/v1"

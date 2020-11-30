@@ -61,6 +61,7 @@
 		4FB6DDA22573BCFC001304F3 /* DPBaseAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */; };
 		4FB6DDA62573C281001304F3 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB6DDA52573C281001304F3 /* ActivityIndicatorView */; };
 		4FB6DDB22574FCFB001304F3 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDB12574FCFB001304F3 /* ProfileSettingsView.swift */; };
+		4FB6DDB625753668001304F3 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDB525753668001304F3 /* ChangePasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		4FB6DD9A2573B225001304F3 /* CoachRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachRequest.swift; sourceTree = "<group>"; };
 		4FB6DDA12573BCFC001304F3 /* DPBaseAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPBaseAPIResponse.swift; sourceTree = "<group>"; };
 		4FB6DDB12574FCFB001304F3 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		4FB6DDB525753668001304F3 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			children = (
 				4F0DC463256D143A002F2364 /* ProfileView.swift */,
 				4FB6DDB12574FCFB001304F3 /* ProfileSettingsView.swift */,
+				4FB6DDB525753668001304F3 /* ChangePasswordView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				4F03371B257235CC00F1BF18 /* CreateAccountView.swift in Sources */,
 				4FB6DD7A2573AC1B001304F3 /* DPRequestPath.swift in Sources */,
 				4F03371E2572476900F1BF18 /* RadioButton.swift in Sources */,
+				4FB6DDB625753668001304F3 /* ChangePasswordView.swift in Sources */,
 				329C39DC256CC66200B69E17 /* SportsList.swift in Sources */,
 				4FB6DD7F2573AC1B001304F3 /* DPRequestBodyEncodeType.swift in Sources */,
 				4F2D8E5F256C082E001A14C3 /* User.swift in Sources */,

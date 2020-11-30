@@ -76,4 +76,11 @@ extension User {
         }
     }
     
+    func changePassword(_ oldPassword: String, _ newPassword: String, _ handler: @escaping (Bool, Error?)-> ()) {
+        let service = APIService.changePassword(request: UpdatePasswordRequest(oldPassword: oldPassword, newPassword: newPassword))
+        service.submit { response in
+            handler(response.isSuccess, response.error)
+        }
+    }
+    
 }

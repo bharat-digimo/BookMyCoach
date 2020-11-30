@@ -29,3 +29,8 @@ struct UserUpdateRequest: Codable {
     var longitude: Double?
     var profilePhoto: String?
 }
+
+struct UpdatePasswordRequest: Codable {
+    var oldPassword: String
+    var newPassword: String
+}

@@ -21,6 +21,8 @@ extension APIService {
             return DPRequestBody()
         case let .getNearbyCoaches(request):
             return DPRequestBody(model: request)
+        case let .changePassword(request):
+            return DPRequestBody(model: request)
         }
     }
     
