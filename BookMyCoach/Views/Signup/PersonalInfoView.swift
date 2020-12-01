@@ -19,13 +19,16 @@ struct PersonalInfoView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @State var hourlyRate: String?
-    @State var showImagePicker: Bool = false
-    @State var pickedImage: UIImage? = nil
     @State private var navBarHidden: Bool = true
     @State private var showSportsList: Bool = false
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
+    
+    @State private var image: Image?
+    @State private var shouldPresentImagePicker = false
+    @State private var shouldPresentActionSheet = false
+    @State private var shouldPresentCamera = false
     
     var viewType: ViewType = .create
     var titleText = ""
@@ -79,12 +82,41 @@ struct PersonalInfoView: View {
                     VStack {
                         HStack {
                             ZStack {
-                                Circle()
-                                    .stroke(Color.buttonBackground)
-                                    .frame(width: 150, height: 150)
-                                Image(systemName: "camera")
-                                    .font(.system(size: 48, weight: .bold))
-                                    .foregroundColor(.buttonBackground)
+                                if let newImage = image {
+                                    newImage
+                                        .resizable()
+                                        .frame(width: 150, height: 150)
+                                        .clipped()
+                                        .aspectRatio(contentMode: .fill)
+                                        .cornerRadius(75)
+                                    Circle()
+                                        .stroke(Color.white)
+                                        .frame(width: 150, height: 150)
+                                } else if let imageUrl = userManager.activeUser?.profilePhoto, imageUrl.count > 0 {
+                                    ImageLoader(url: imageUrl, name: userManager.activeUser?.fullName)
+                                        .frame(width: 150, height: 150)
+                                        .clipped()
+                                        .cornerRadius(75)
+                                } else {
+                                    Image(systemName: "camera")
+                                        .font(.system(size: 48, weight: .bold))
+                                        .foregroundColor(.buttonBackground)
+                                    Circle()
+                                        .stroke(Color.buttonBackground)
+                                        .frame(width: 150, height: 150)
+                                }
+                            }
+                            .onTapGesture { self.shouldPresentActionSheet = true }
+                            .sheet(isPresented: $shouldPresentImagePicker) {
+                                ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
+                            }.actionSheet(isPresented: $shouldPresentActionSheet) { () -> ActionSheet in
+                                ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
+                                    self.shouldPresentImagePicker = true
+                                    self.shouldPresentCamera = true
+                                }), ActionSheet.Button.default(Text("Photo Library"), action: {
+                                    self.shouldPresentImagePicker = true
+                                    self.shouldPresentCamera = false
+                                }), ActionSheet.Button.cancel()])
                             }
                             Text("Choose a profile photo (Optional)")
                                 .foregroundColor(.white)
@@ -124,6 +156,39 @@ struct PersonalInfoView: View {
         })
     }
     
+    private func uploadImage() {
+        if let newImage = self.image {
+            newImage.asUIImage { (uiImage) in
+                StorageManager.uploadImage(uiImage, folder: .Profile) { (url, error) in
+                    if let urlString = url?.absoluteString {
+                        userManager.activeUser?.profilePhoto = urlString
+                    }
+                    updateProfile()
+                }
+            }
+        } else {
+            updateProfile()
+        }
+    }
+    
+    private func updateProfile() {
+        let user = userManager.activeUser
+        user?.update(UserUpdateRequest(fullName: user?.fullName ?? "", bio: user?.bio, price: user?.price, latitude: 0.0, longitude: 0.0, profilePhoto: user?.profilePhoto), handler: { (user, error) in
+            showLoading = false
+            if error == nil, let user = user {
+                UserManager.shared.activeUser = user
+                if viewType == .create {
+                    showSportsList = true
+                } else {
+                    self.mode.wrappedValue.dismiss()
+                }
+            } else {
+                alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                showsAlert = true
+            }
+        })
+    }
+    
     private func nextTapped() {
         let user = userManager.activeUser
         if user?.fullName?.isEmpty == true {
@@ -146,20 +211,7 @@ struct PersonalInfoView: View {
             }
             hideKeyboard()
             showLoading = true
-            user?.update(UserUpdateRequest(fullName: user?.fullName ?? "", bio: user?.bio, price: user?.price, latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (user, error) in
-                showLoading = false
-                if error == nil, let user = user {
-                    UserManager.shared.activeUser = user
-                    if viewType == .create {
-                        showSportsList = true
-                    } else {
-                        self.mode.wrappedValue.dismiss()
-                    }
-                } else {
-                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
-                    showsAlert = true
-                }
-            })
+            uploadImage()
         }
     }
 }

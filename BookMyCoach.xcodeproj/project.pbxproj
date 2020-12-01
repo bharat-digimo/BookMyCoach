@@ -64,6 +64,10 @@
 		4FB6DDC12576455D001304F3 /* Image+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDC02576455D001304F3 /* Image+Helper.swift */; };
 		4FB6DDC425764A8A001304F3 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDC325764A8A001304F3 /* ImageLoader.swift */; };
 		4FB6DDC725764ED6001304F3 /* CoachProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDC625764ED6001304F3 /* CoachProfileView.swift */; };
+		4FB6DDCB257688C3001304F3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB6DDCA257688C3001304F3 /* FirebaseStorage */; };
+		4FB6DDCE25768920001304F3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDCD25768920001304F3 /* StorageManager.swift */; };
+		4FB6DDD1257689B5001304F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */; };
+		4FB6DDD425768F66001304F3 /* UIImage+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDD325768F66001304F3 /* UIImage+Compression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +128,9 @@
 		4FB6DDC02576455D001304F3 /* Image+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Helper.swift"; sourceTree = "<group>"; };
 		4FB6DDC325764A8A001304F3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		4FB6DDC625764ED6001304F3 /* CoachProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachProfileView.swift; sourceTree = "<group>"; };
+		4FB6DDCD25768920001304F3 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FB6DDD325768F66001304F3 /* UIImage+Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Compression.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +140,7 @@
 			files = (
 				4FB6DDA62573C281001304F3 /* ActivityIndicatorView in Frameworks */,
 				4F0DC43E256C1B2C002F2364 /* KingfisherSwiftUI in Frameworks */,
+				4FB6DDCB257688C3001304F3 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +178,8 @@
 		4F03373B257299E000F1BF18 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */,
+				4FB6DDCD25768920001304F3 /* StorageManager.swift */,
 				4F03374025729A0300F1BF18 /* UserManager.swift */,
 			);
 			path = Managers;
@@ -179,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				4F0337322572663A00F1BF18 /* Extensions.swift */,
+				4FB6DDD325768F66001304F3 /* UIImage+Compression.swift */,
 				4FB6DDC02576455D001304F3 /* Image+Helper.swift */,
 			);
 			path = Extension;
@@ -381,6 +392,7 @@
 			packageProductDependencies = (
 				4F0DC43D256C1B2C002F2364 /* KingfisherSwiftUI */,
 				4FB6DDA52573C281001304F3 /* ActivityIndicatorView */,
+				4FB6DDCA257688C3001304F3 /* FirebaseStorage */,
 			);
 			productName = BookMyCoach;
 			productReference = 4F2D8E3C256BD500001A14C3 /* BookMyCoach.app */;
@@ -412,6 +424,7 @@
 			packageReferences = (
 				4F0DC43C256C1B2B002F2364 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				4FB6DDA42573C281001304F3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				4FB6DDC9257688C3001304F3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4F2D8E3D256BD500001A14C3 /* Products */;
 			projectDirPath = "";
@@ -429,6 +442,7 @@
 			files = (
 				4F2D8E47256BD503001A14C3 /* Preview Assets.xcassets in Resources */,
 				4F2D8E44256BD503001A14C3 /* Assets.xcassets in Resources */,
+				4FB6DDD1257689B5001304F3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,12 +468,14 @@
 				4FB6DDB22574FCFB001304F3 /* ProfileSettingsView.swift in Sources */,
 				4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */,
 				4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */,
+				4FB6DDD425768F66001304F3 /* UIImage+Compression.swift in Sources */,
 				4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */,
 				4FB6DD7C2573AC1B001304F3 /* DPRequestMethod.swift in Sources */,
 				4F0337512572B63D00F1BF18 /* LoginBottomView.swift in Sources */,
 				4F2D8E50256BD8C1001A14C3 /* PlayerHome.swift in Sources */,
 				4F03372625725D1D00F1BF18 /* SportsListView.swift in Sources */,
 				4FB6DD902573AC46001304F3 /* APIService+RequestBody.swift in Sources */,
+				4FB6DDCE25768920001304F3 /* StorageManager.swift in Sources */,
 				4FB6DD802573AC1B001304F3 /* DPResponse.swift in Sources */,
 				4FB6DD7D2573AC1B001304F3 /* DPRequestBody.swift in Sources */,
 				4FB6DDC725764ED6001304F3 /* CoachProfileView.swift in Sources */,
@@ -702,6 +718,14 @@
 				minimumVersion = 0.0.6;
 			};
 		};
+		4FB6DDC9257688C3001304F3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -714,6 +738,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4FB6DDA42573C281001304F3 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
 			productName = ActivityIndicatorView;
+		};
+		4FB6DDCA257688C3001304F3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FB6DDC9257688C3001304F3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

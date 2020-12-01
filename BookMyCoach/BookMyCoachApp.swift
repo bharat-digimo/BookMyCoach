@@ -12,6 +12,10 @@ struct BookMyCoachApp: App {
     
     var userManager: UserManager = UserManager.shared
     
+    init() {
+        StorageManager.initialize()
+    }
+    
     var body: some Scene {
         WindowGroup {
             if UserManager.shared.isLoggedInUser() == false {

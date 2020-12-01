@@ -6,45 +6,83 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct ImagePickerView: UIViewControllerRepresentable {
     
-    @Binding var image: UIImage?
-    @Binding var isShown: Bool
+    var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @Binding var image: Image?
+    @Binding var isPresented: Bool
     
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(isShown: $isShown, image: $image)
+    func makeCoordinator() -> ImagePickerViewCoordinator {
+        return ImagePickerViewCoordinator(image: $image, isPresented: $isPresented)
     }
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        return picker
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let pickerController = UIImagePickerController()
+        pickerController.sourceType = sourceType
+        pickerController.delegate = context.coordinator
+        return pickerController
     }
     
-    func updateUIViewController(_ uiViewController: UIImagePickerController,
-                                context: UIViewControllerRepresentableContext<ImagePicker>) {
-        
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+        // Nothing to update here
     }
     
-    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-        
-        @Binding var image: UIImage?
-        @Binding var isShown: Bool
-        
-        init(isShown: Binding<Bool>, image: Binding<UIImage?>) {
-            _isShown = isShown
-            _image = image
+}
+
+class ImagePickerViewCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    @Binding var image: Image?
+    @Binding var isPresented: Bool
+    
+    init(image: Binding<Image?>, isPresented: Binding<Bool>) {
+        self._image = image
+        self._isPresented = isPresented
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.image = Image(uiImage: image)
         }
+        self.isPresented = false
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.isPresented = false
+    }
+    
+}
+
+extension View {
+    // This function changes our View to UIView, then calls another function
+    // to convert the newly-made UIView to a UIImage.
+    public func asUIImage(_ handler: @escaping (UIImage) -> ()) {
+        let controller = UIHostingController(rootView: self)
+        controller.view.frame = CGRect(x: 0, y: CGFloat(Int.max), width: 1, height: 1)
+        UIApplication.shared.windows.first!.rootViewController?.view.addSubview(controller.view)
+        let size = controller.sizeThatFits(in: UIScreen.main.bounds.size)
+        controller.view.bounds = CGRect(origin: .zero, size: size)
+        controller.view.sizeToFit()
         
-        func imagePickerController(_ picker: UIImagePickerController,
-                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            isShown.toggle()
+        // here is the call to the function that converts UIView to UIImage: `.asImage()`
+        let image = controller.view.asUIImage()
+        controller.view.removeFromSuperview()
+        DispatchQueue.global().async {
+            let compressed = image.compressImageAspectRatio() ?? image
+            DispatchQueue.main.async {
+                handler(compressed)
+            }
         }
-        
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            isShown.toggle()
+    }
+}
+
+extension UIView {
+    // This is the function to convert UIView to UIImage
+    public func asUIImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
         }
     }
 }
