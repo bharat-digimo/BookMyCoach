@@ -59,10 +59,10 @@ struct CoachProfileCard: View {
                     .padding(.top, 16)
                 
                 HStack {
-                    Image(coach.sport?[0].icon ?? "")
+                    Image(coach.userSports?[0].sport?.icon ?? "")
                         .resizable()
                         .frame(width: 20, height: 20)
-                    Text(coach.sport?[0].name ?? "")
+                    Text(coach.userSports?[0].sport?.name ?? "")
                 }
                 
                 HStack(spacing: 8) {

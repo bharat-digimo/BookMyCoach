@@ -6,21 +6,6 @@
 //
 
 import Foundation
-//
-//class AppUser: ObservableObject {
-//    
-//    @Published var user: User = User()
-//    
-//    init(user: User?) {
-//        if let newUser = user {
-//            self.user = newUser
-//        }
-//    }
-//    
-//    func updateUser(user: User?) {
-//        
-//    }
-//}
 
 struct User: Codable {
     var id: Int
@@ -32,7 +17,7 @@ struct User: Codable {
     var longitude: Double?
     var price: Double?
     var userType: UserType = UserType.player
-    var sport: [Sport]?
+    var userSports: [UserSport]?
     var rating: Float? = 0.0
     var isProfileComplete: Bool? = false
     
@@ -51,7 +36,7 @@ struct User: Codable {
         self.longitude = longitude
         self.price = price
         self.userType = userType
-        self.sport = sport
+        self.userSports = sport?.compactMap{UserSport(id: 0, sport: $0)}
         self.rating = rating
     }
 
@@ -120,8 +105,11 @@ extension User {
     
     func updateSport(_ sport: Sport, _ handler: @escaping (Bool, Error?)-> ()) {
         let service = APIService.updateSports(request: UpdateSportsRequest(sports: [UpdateSportsRequest.SportRequest(sportId: sport.id, isPrimary: true)]))
-        service.submit { response in
-            handler(response.isSuccess, response.error)
+        service.fetch(User.self) { (user, error, _) in
+            if error == nil {
+                UserManager.shared.activeUser = user
+            }
+            handler(error == nil, error)
         }
     }
     

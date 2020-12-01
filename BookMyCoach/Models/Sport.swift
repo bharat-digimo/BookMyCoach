@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct UserSport: Codable {
+    var id: Int
+    var sport: Sport?
+}
+
 struct Sport: Codable, Hashable {
     var id: Int
     var name: String

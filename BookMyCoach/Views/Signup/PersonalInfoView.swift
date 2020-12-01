@@ -8,13 +8,13 @@
 import SwiftUI
 import ActivityIndicatorView
  
+enum ViewType {
+    case create
+    case edit
+}
+
 struct PersonalInfoView: View {
-    
-    enum ViewType {
-        case create
-        case edit
-    }
-    
+        
     @EnvironmentObject var userManager: UserManager
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     

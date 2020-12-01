@@ -35,7 +35,7 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            ProfileView().environmentObject(userManager)
+            ProfileView()
                 .tabItem {
                     VStack {
                         Image(systemName: "person.fill")

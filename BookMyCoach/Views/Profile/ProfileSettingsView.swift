@@ -9,7 +9,7 @@ import SwiftUI
 import ActivityIndicatorView
 
 struct ProfileSettingsView: View {
-        
+    
     @State private var showAlert = false
     @State private var showLoading = false
     @State private var showLoginView = false
@@ -33,7 +33,7 @@ struct ProfileSettingsView: View {
                         }
                     }
                     
-                    NavigationLink(destination: SportsListView()) {
+                    NavigationLink(destination: SportsListView(viewType: .edit, oldSport: UserManager.shared.activeUser?.userSports?.first?.sport)) {
                         HStack {
                             Text("Update Sport")
                             Spacer()

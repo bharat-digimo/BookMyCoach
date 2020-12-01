@@ -24,7 +24,7 @@ struct LoginView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
         //Use this if NavigationBarTitle is with displayMode = .inline
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.red]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     var body: some View {
         NavigationView {

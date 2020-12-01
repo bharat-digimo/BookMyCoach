@@ -18,7 +18,11 @@ struct BookMyCoachApp: App {
                 LoginView().environmentObject(userManager)
             } else {
                 if userManager.activeUser?.isProfileComplete == true {
-                    ContentView().environmentObject(userManager)
+                    if userManager.activeUser?.userType == UserType.coach {
+                        CoachTabBar().environmentObject(userManager)
+                    } else {
+                        ContentView().environmentObject(userManager)
+                    }
                 } else {
                     NavigationView {
                         PersonalInfoView().environmentObject(userManager)

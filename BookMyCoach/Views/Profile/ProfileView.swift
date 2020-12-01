@@ -55,10 +55,10 @@ struct ProfileView: View {
                                 .font(.title)
                                 .bold()
                             HStack {
-                                Image(user?.sport?[0].icon ?? "")
+                                Image(user?.userSports?[0].sport?.icon ?? "")
                                     .resizable()
                                     .frame(width: 25, height: 25)
-                                Text(user?.sport?[0].name ?? "")
+                                Text(user?.userSports?[0].sport?.name ?? "")
                                     .font(.title3)
                             }
                             Spacer()
