@@ -9,8 +9,7 @@ import SwiftUI
 import ActivityIndicatorView
 
 struct ProfileSettingsView: View {
-    let user = UserManager.shared.activeUser
-    
+        
     @State private var showAlert = false
     @State private var showLoading = false
     @State private var showLoginView = false
@@ -86,7 +85,7 @@ struct ProfileSettingsView: View {
     
     private func logoutTapped() {
         showLoading = true
-        user?.logout({ (success, error) in
+        UserManager.shared.activeUser?.logout({ (success, error) in
             showLoading = false
             if success {
                 showLoginView = true

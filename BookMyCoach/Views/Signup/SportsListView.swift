@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import ActivityIndicatorView
 
 struct SportsListView: View {
     
-    var viewModels: [SportViewModel] = allSports.map({ SportViewModel(sport: $0) })
+    let sports = allSports
     
     @State private var navBarHidden: Bool = true
     @State private var showContentView: Bool = false
     @State private var selectedSport: Sport? = nil
+    @State private var showsAlert = false
+    @State private var alertMessage = ""
+    @State private var showLoading = false
     
     func image(for state: Bool) -> Image {
         return state ? Image(systemName: "checkmark.circle") : Image(systemName: "circle")
@@ -35,9 +39,8 @@ struct SportsListView: View {
                 
                 ScrollView {
                     VStack() {
-                        ForEach(0..<viewModels.count, id:\.self) { index in
-                            let vm = viewModels[index]
-                            let sport = vm.sport
+                        ForEach(0..<sports.count, id:\.self) { index in
+                            let sport = sports[index]
                             HStack {
                                 Image(sport.icon)
                                     .padding(.horizontal, 12)
@@ -46,29 +49,56 @@ struct SportsListView: View {
                                     .bold()
                                     .foregroundColor(.white)
                                 Spacer()
-                                self.image(for: (vm.sport.id == selectedSport?.id))
+                                self.image(for: (sport.id == selectedSport?.id))
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.white)
                                     .padding()
                             }
                             .onTapGesture {
-                                selectedSport = vm.sport
+                                withAnimation {
+                                    selectedSport = sport
+                                }
                             }
                             .padding()
                         }
                     }
                 }
                 RoundedButton(text: "Next") {
-                    showContentView = true
+                   nextTapped()
                 }
             }
             .fullScreenCover(isPresented: $showContentView, content: {
                 ContentView()
             })
+            
+            ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
+                .frame(width: 100, height: 100)
+            
         }
         .navigationTitle("")
         .navigationBarHidden(navBarHidden)
+        .alert(isPresented: $showsAlert, content: {
+            Alert(title: Text(alertMessage))
+        })
+    }
+    
+    private func nextTapped() {
+        if let sport = selectedSport {
+            showLoading = true
+            UserManager.shared.activeUser?.updateSport(sport, { (success, error) in
+                showLoading = false
+                if success {
+                    showContentView = true
+                } else {
+                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                    showsAlert = true
+                }
+            })
+        } else {
+            alertMessage = "Please select your sport to proceed."
+            showsAlert = true
+        }
     }
 }
 

@@ -10,10 +10,15 @@ import KingfisherSwiftUI
 
 struct ProfileView: View {
 
+    @EnvironmentObject var userManager: UserManager
+    
     @State private var showSettings = false
-    var user: User
+    //var user: User
     
     var body: some View {
+        
+        let user = userManager.activeUser
+        
         NavigationView {
             ScrollView {
                 VStack {
@@ -23,7 +28,7 @@ struct ProfileView: View {
                                 HStack(alignment: .top) {
                                     Image(systemName: "star.fill")
                                         .foregroundColor(.yellow)
-                                    Text(user.rating?.description ?? "5.0")
+                                    Text(user?.rating?.description ?? "5.0")
                                         .bold()
                                 }
                                 Spacer()
@@ -41,21 +46,21 @@ struct ProfileView: View {
                         }
                         VStack(spacing: 12) {
                             Spacer()
-                            KFImage(URL(string: user.profilePhoto ?? ""))
+                            KFImage(URL(string: user?.profilePhoto ?? ""))
                                 .resizable()
                                 .clipShape(Circle())
                                 .frame(width: 200, height: 200)
                                 .aspectRatio(contentMode: .fill)
                                 .overlay(Circle().stroke(Color.white, lineWidth: 3.0))
                                 .padding()
-                            Text(user.fullName ?? "")
+                            Text(user?.fullName ?? "")
                                 .font(.title)
                                 .bold()
                             HStack {
-                                Image(user.sport?[0].icon ?? "")
+                                Image(user?.sport?[0].icon ?? "")
                                     .resizable()
                                     .frame(width: 25, height: 25)
-                                Text(user.sport?[0].name ?? "")
+                                Text(user?.sport?[0].name ?? "")
                                     .font(.title3)
                             }
                             Spacer()
@@ -64,7 +69,7 @@ struct ProfileView: View {
                     .frame(height: 360)
                     Color.white.frame(height: CGFloat(1) / UIScreen.main.scale)
                     HStack(spacing: 16) {
-                        ContentLabel(labelName: "About Me", value: user.bio ?? "")
+                        ContentLabel(labelName: "About Me", value: user?.bio ?? "")
                         Spacer()
                     }
                     .padding()
@@ -83,7 +88,7 @@ struct ProfileView_Previews: PreviewProvider {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             
-            ProfileView(user: user1)
+            ProfileView()
         }
     }
 }

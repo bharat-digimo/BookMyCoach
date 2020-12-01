@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var userManager: UserManager
+    
     init() {
-        
         UITabBar.appearance().barTintColor = .black
-        
     }
+    
     var body: some View {
         TabView {
             PlayerHome()
@@ -34,7 +35,7 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            ProfileView(user: UserManager.shared.activeUser ?? user1)
+            ProfileView().environmentObject(userManager)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.fill")

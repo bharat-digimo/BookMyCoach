@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class UserManager: NSObject {
+
+class UserManager: NSObject, ObservableObject {
     
     // MARK: Declaration for string constants to be used to decode and also serialize.
     
@@ -15,7 +16,7 @@ class UserManager: NSObject {
         static let accessToken = "com.bookmycoach.accessToken"
     }
     
-    fileprivate var _activeUser: User?
+    @Published fileprivate var _activeUser: User?
     
     var backupSalt: Data?
     var openItemToastShown = false

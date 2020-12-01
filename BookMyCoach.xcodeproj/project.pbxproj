@@ -22,7 +22,6 @@
 		4F03371E2572476900F1BF18 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03371D2572476900F1BF18 /* RadioButton.swift */; };
 		4F0337232572574100F1BF18 /* PersonalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0337222572574100F1BF18 /* PersonalInfoView.swift */; };
 		4F03372625725D1D00F1BF18 /* SportsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03372525725D1D00F1BF18 /* SportsListView.swift */; };
-		4F03372A257260AF00F1BF18 /* SportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F033729257260AF00F1BF18 /* SportViewModel.swift */; };
 		4F0337332572663A00F1BF18 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0337322572663A00F1BF18 /* Extensions.swift */; };
 		4F03373825726C9500F1BF18 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03373725726C9500F1BF18 /* ImagePickerView.swift */; };
 		4F03374125729A0300F1BF18 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03374025729A0300F1BF18 /* UserManager.swift */; };
@@ -80,7 +79,6 @@
 		4F03371D2572476900F1BF18 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		4F0337222572574100F1BF18 /* PersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoView.swift; sourceTree = "<group>"; };
 		4F03372525725D1D00F1BF18 /* SportsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsListView.swift; sourceTree = "<group>"; };
-		4F033729257260AF00F1BF18 /* SportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportViewModel.swift; sourceTree = "<group>"; };
 		4F0337322572663A00F1BF18 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4F03373725726C9500F1BF18 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		4F03374025729A0300F1BF18 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 		4F0337282572609700F1BF18 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4F033729257260AF00F1BF18 /* SportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -441,7 +438,6 @@
 				4F0337232572574100F1BF18 /* PersonalInfoView.swift in Sources */,
 				329C39DF256CC8C300B69E17 /* Sport.swift in Sources */,
 				4FB6DD962573AF7C001304F3 /* UserRequest.swift in Sources */,
-				4F03372A257260AF00F1BF18 /* SportViewModel.swift in Sources */,
 				329C39ED256D0FB300B69E17 /* SessionCardView.swift in Sources */,
 				4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */,
 				329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */,
@@ -614,7 +610,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookMyCoach/Preview Content\"";
-				DEVELOPMENT_TEAM = 4K4LP62M5S;
+				DEVELOPMENT_TEAM = APAFPPCAVJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BookMyCoach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -622,7 +618,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.digimoplusllp.BookMyCoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digimo.BookMyCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -638,7 +634,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookMyCoach/Preview Content\"";
-				DEVELOPMENT_TEAM = 4K4LP62M5S;
+				DEVELOPMENT_TEAM = APAFPPCAVJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BookMyCoach/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -646,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.digimoplusllp.BookMyCoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.digimo.BookMyCoach;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -7,18 +7,18 @@
 
 import SwiftUI
 import ActivityIndicatorView
-
+ 
 struct PersonalInfoView: View {
     
     enum ViewType {
         case create
         case edit
     }
+    
+    @EnvironmentObject var userManager: UserManager
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    @State private var fullName: String = ""
-    @State private var hourlyRate: String = ""
-    @State private var bio: String = ""
+    @State var hourlyRate: String?
     @State var showImagePicker: Bool = false
     @State var pickedImage: UIImage? = nil
     @State private var navBarHidden: Bool = true
@@ -26,23 +26,40 @@ struct PersonalInfoView: View {
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
-        
-    var user = UserManager.shared.activeUser
+    
     var viewType: ViewType = .create
     var titleText = ""
     
     init(viewType: ViewType = .create) {
         self.viewType = viewType
         if viewType == .edit {
-            self._fullName = State(wrappedValue: user?.fullName ?? "")
-            self._hourlyRate =  State(wrappedValue: user?.price?.description ?? "")
-            self._bio =  State(wrappedValue: user?.bio ?? "")
             self._navBarHidden = State(wrappedValue: self.viewType == .create)
             self.titleText = "Edit profile"
         }
     }
     
     var body: some View {
+        let user = userManager.activeUser
+        
+        let fullName = Binding<String> {
+            return userManager.activeUser?.fullName ?? ""
+        } set: { newVal in
+            userManager.activeUser?.fullName = newVal
+        }
+        
+        let hourlyRate = Binding<String> {
+            return self.hourlyRate ?? userManager.activeUser?.price?.description ?? ""
+        } set: {
+            self.hourlyRate = $0
+            userManager.activeUser?.price = Double($0)
+        }
+        
+        let bio = Binding<String> {
+            return userManager.activeUser?.bio ?? ""
+        } set: { newVal in
+            userManager.activeUser?.bio = newVal
+        }
+        
         ZStack {
             Color.themeBackground.edgesIgnoringSafeArea(.all)
             VStack {
@@ -73,19 +90,19 @@ struct PersonalInfoView: View {
                                 .foregroundColor(.white)
                                 .padding(.leading)
                         }.padding(.horizontal)
-                        
-                        LoginTextField(text: $fullName, placeholder: "Full Name", imageName: "person")
+                                                
+                        LoginTextField(text: fullName, placeholder: "Full Name", imageName: "person")
                             .padding(.horizontal, 20)
                             .padding(.bottom, 10)
                         
-                        if let aUser = UserManager.shared.activeUser, aUser.userType == .coach {
-                            LoginTextField(text: $hourlyRate, placeholder: "Hourly Rate", imageName: "dollarsign.circle")
+                        if user?.userType == .coach {
+                            LoginTextField(text: hourlyRate, placeholder: "Hourly Rate", imageName: "dollarsign.circle")
                                 .keyboardType(.numberPad)
                                 .padding(.horizontal, 20)
                                 .padding(.bottom, 10)
                         }
                         
-                        LoginTextField(text: $bio, placeholder: "About you", imageName: "highlighter")
+                        LoginTextField(text: bio, placeholder: "About you", imageName: "highlighter")
                             .padding(.horizontal, 20)
                         
                         Spacer().frame(height: 40)
@@ -108,19 +125,20 @@ struct PersonalInfoView: View {
     }
     
     private func nextTapped() {
-        if fullName.isEmpty {
+        let user = userManager.activeUser
+        if user?.fullName?.isEmpty == true {
             alertMessage = "Please enter your full name."
             showsAlert = true
-        }  else if bio.isEmpty {
+        }  else if user?.bio?.isEmpty == true {
             alertMessage = "About me cannot be blank."
             showsAlert = true
         } else {
-            if user?.userType == .coach {
-                 if hourlyRate.isEmpty {
+            if user?.userType == UserType.coach {
+                if user?.price?.description.isEmpty == true {
                     alertMessage = "Please enter your hourly rate."
                     showsAlert = true
                     return
-                } else if Double(hourlyRate) ?? 0.0 == 0.0 {
+                } else if user?.price ?? 0.0 == 0.0 {
                     alertMessage = "Hourly rate should be greater than 0."
                     showsAlert = true
                     return
@@ -128,9 +146,9 @@ struct PersonalInfoView: View {
             }
             hideKeyboard()
             showLoading = true
-            UserManager.shared.activeUser?.update(UserUpdateRequest(fullName: fullName, bio: bio, price: Double(hourlyRate), latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (user, error) in
+            user?.update(UserUpdateRequest(fullName: user?.fullName ?? "", bio: user?.bio, price: user?.price, latitude: 0.0, longitude: 0.0, profilePhoto: nil), handler: { (user, error) in
                 showLoading = false
-                if error == nil {
+                if error == nil, let user = user {
                     UserManager.shared.activeUser = user
                     if viewType == .create {
                         showSportsList = true

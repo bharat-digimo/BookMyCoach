@@ -38,7 +38,7 @@ struct CoachTabBar: View {
                 }
                 .tag(1)
             
-            ProfileView(user: coach1)
+            ProfileView()
                 .tabItem {
                     VStack {
                         Image(systemName: "person.fill")

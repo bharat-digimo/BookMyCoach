@@ -10,18 +10,18 @@ import SwiftUI
 @main
 struct BookMyCoachApp: App {
     
-    var user: User? = UserManager.shared.activeUser
+    var userManager: UserManager = UserManager.shared
     
     var body: some Scene {
         WindowGroup {
-            if user == nil {
-                LoginView()
+            if UserManager.shared.isLoggedInUser() == false {
+                LoginView().environmentObject(userManager)
             } else {
-                if user?.isProfileComplete == true {
-                    ContentView()
+                if userManager.activeUser?.isProfileComplete == true {
+                    ContentView().environmentObject(userManager)
                 } else {
                     NavigationView {
-                        PersonalInfoView()
+                        PersonalInfoView().environmentObject(userManager)
                             .navigationBarHidden(true)
                     }
                 }
