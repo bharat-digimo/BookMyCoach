@@ -33,6 +33,13 @@ struct ProfileSettingsView: View {
                         }
                     }
                     
+                    NavigationLink(destination: SportsListView()) {
+                        HStack {
+                            Text("Update Sport")
+                            Spacer()
+                        }
+                    }
+                    
                     NavigationLink(destination: Text("Terms of Service")) {
                         HStack {
                             Text("Terms of Service")

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
 
 struct RecentBooking: View {
     
@@ -41,11 +40,9 @@ struct BookingInvitationCard: View {
     var body: some View {
         LazyVStack {
             HStack {
-                KFImage(URL(string: booking.coach.profilePhoto ?? ""))
-                    .resizable()
+                ImageLoader(url: booking.coach.profilePhoto, name: booking.coach.fullName)
                     .frame(width: 60, height: 60)
                     .cornerRadius(30)
-                    .aspectRatio(contentMode: .fill)
                 VStack(alignment: .leading) {
                     Text(booking.coach.fullName ?? "")
                         .font(.title2)

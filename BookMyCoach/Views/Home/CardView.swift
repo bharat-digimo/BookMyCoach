@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
 
 struct CardView: View {
     
@@ -54,43 +53,6 @@ struct CardView_Previews: PreviewProvider {
                 .edgesIgnoringSafeArea(.all)
             CardView(bookings: [booking1, booking2, booking3])
         }
-    }
-}
-
-struct CoachProfileView: View {
-    
-    let screen = UIScreen.main.bounds
-    let booking: Booking
-    let shouldShowRating: Bool
-    
-    var body: some View {
-        LazyVStack {
-            HStack {
-                KFImage(URL(string: booking.coach.profilePhoto ?? ""))
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(30)
-                    .aspectRatio(contentMode: .fill)
-                VStack(alignment: .leading) {
-                    Text(booking.coach.fullName ?? "")
-                        .font(.title2)
-                        .bold()
-                    Text("Basket Ball")
-                        .font(.subheadline)
-                        .foregroundColor(Color.white.opacity(0.7))
-                }
-                .padding(.leading, 8)
-                Spacer()
-                if shouldShowRating {
-                    HStack(alignment: .top) {
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                        Text(booking.coach.rating?.description ?? "5.0")
-                            .bold()
-                    }
-                }
-            }
-        }.padding()
     }
 }
 

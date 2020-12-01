@@ -49,12 +49,9 @@ struct CoachProfileCard: View {
     
     var body: some View {
         HStack {
-            KFImage(URL(string: coach.profilePhoto ?? ""))
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            ImageLoader(url: coach.profilePhoto, name: coach.fullName)
                 .frame(width: screen.width / 3)
                 .clipped()
-            
             VStack(alignment: .leading, spacing: 8) {
                 Text(coach.fullName ?? "")
                     .font(.title2)

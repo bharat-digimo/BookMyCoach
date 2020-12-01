@@ -46,11 +46,9 @@ struct ProfileView: View {
                         }
                         VStack(spacing: 12) {
                             Spacer()
-                            KFImage(URL(string: user?.profilePhoto ?? ""))
-                                .resizable()
+                            ImageLoader(url: user?.profilePhoto, name: user?.fullName)
                                 .clipShape(Circle())
                                 .frame(width: 200, height: 200)
-                                .aspectRatio(contentMode: .fill)
                                 .overlay(Circle().stroke(Color.white, lineWidth: 3.0))
                                 .padding()
                             Text(user?.fullName ?? "")
