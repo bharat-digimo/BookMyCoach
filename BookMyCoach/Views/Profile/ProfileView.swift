@@ -67,7 +67,7 @@ struct ProfileView: View {
                     .frame(height: 360)
                     Color.white.frame(height: CGFloat(1) / UIScreen.main.scale)
                     HStack(spacing: 16) {
-                        ContentLabel(labelName: "About Me", value: user?.bio ?? "")
+                        ContentLabel(labelName: Constant.aboutMe, value: user?.bio ?? "")
                         Spacer()
                     }
                     .padding()

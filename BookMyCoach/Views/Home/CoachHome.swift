@@ -19,10 +19,10 @@ struct CoachHome: View {
             VStack {
                 HeaderView()
                 ScrollView {
-                    CardHeader(category: "Upcoming Session")
+                    CardHeader(category: Constant.upcomingSession)
                         .padding(.horizontal)
                     SessionCardView(bookings: bookings)
-                    CardHeader(category: "Recent Booking Invitations")
+                    CardHeader(category: Constant.recentBookingInvitation)
                         .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
                     RecentBooking(bookings: [booking5, booking8, booking9, booking10])
                 }

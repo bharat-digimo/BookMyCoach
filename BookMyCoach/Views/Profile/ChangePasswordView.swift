@@ -22,23 +22,23 @@ struct ChangePasswordView: View {
         ZStack {
             VStack {
                 List {
-                    Section(header: Text("Enter your existing password")) {
-                        LoginTextField(text: $existingPassword, placeholder: "Existing Password", imageName: "lock", isSecure: true, includeUnderline: false)
+                    Section(header: Text(Constant.enterExistingPassword)) {
+                        LoginTextField(text: $existingPassword, placeholder: Constant.existingPassword, imageName: "lock", isSecure: true, includeUnderline: false)
                     }
                     
-                    Section(header: Text("Create new password")) {
-                        LoginTextField(text: $password, placeholder: "New Password", imageName: "lock", isSecure: true, includeUnderline: false)
+                    Section(header: Text(Constant.createNewPassword)) {
+                        LoginTextField(text: $password, placeholder:Constant.newAccount, imageName: "lock", isSecure: true, includeUnderline: false)
                         
-                        LoginTextField(text: $confirmPassword, placeholder: "Confirm New Password", imageName: "lock", isSecure: true, includeUnderline: false)
+                        LoginTextField(text: $confirmPassword, placeholder: Constant.confirmNewPassword, imageName: "lock", isSecure: true, includeUnderline: false)
                     }
                     
                     
                 }
-                .navigationBarTitle("Change Password")
+                .navigationBarTitle(Constant.changePassword)
                 .listStyle(GroupedListStyle())
                 
                 Spacer()
-                RoundedButton(text: "Change Password", horizontalPadding: 30) {
+                RoundedButton(text: Constant.changePassword, horizontalPadding: 30) {
                     changePasswordTapped()
                 }
                 .padding(.bottom, 20)
@@ -55,16 +55,16 @@ struct ChangePasswordView: View {
     private func changePasswordTapped() {
         
         if existingPassword.isEmpty {
-            alertMessage = "Please enter your password."
+            alertMessage = Constant.enterPassword
             showsAlert = true
         } else if password.isEmpty {
-            alertMessage = "Please enter your new password."
+            alertMessage = Constant.enterNewPassword
             showsAlert = true
         } else if confirmPassword.isEmpty {
-            alertMessage = "Please confirm your new password."
+            alertMessage = Constant.enterConfirmNewPassword
             showsAlert = true
         } else if password != confirmPassword {
-            alertMessage = "Your password does not match.."
+            alertMessage = Constant.passwordNotMatch
             showsAlert = true
         } else {
             showLoading = true
@@ -72,7 +72,7 @@ struct ChangePasswordView: View {
                 if success {
                     self.mode.wrappedValue.dismiss()
                 } else {
-                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                    alertMessage = error?.localizedDescription ?? Constant.somethingWentWrong
                     showsAlert = true
                 }
             })

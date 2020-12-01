@@ -80,7 +80,7 @@ struct CoachProfileCard: View {
                 }
                 Spacer()
                 Button(action: {}, label: {
-                    Text("Book Now")
+                    Text(Constant.bookNow)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .font(.title3)
                         .padding(.vertical, 10)

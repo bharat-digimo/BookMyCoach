@@ -29,7 +29,7 @@ struct CreateAccountView: View {
             VStack {
                 
                 HStack {
-                    Text("New\nAccount")
+                    Text(Constant.newAccount)
                         .font(.system(size: 42, weight: .bold))
                         .bold()
                         .foregroundColor(.white)
@@ -47,29 +47,29 @@ struct CreateAccountView: View {
                     .padding(.vertical, 40)
                     
                     Group {
-                        LoginTextField(text: $email, placeholder: "Email", imageName: "envelope")
+                        LoginTextField(text: $email, placeholder: Constant.email, imageName: "envelope")
                             .padding(.horizontal, 20)
                             .padding(.bottom, 15)
                             .keyboardType(.emailAddress)
                         
                         
-                        LoginTextField(text: $password, placeholder: "Create Password", imageName: "lock", isSecure: true)
+                        LoginTextField(text: $password, placeholder: Constant.createPassword, imageName: "lock", isSecure: true)
                             .padding(.horizontal, 20)
                             .padding(.bottom, 15)
                             .textContentType(.password)
                         
-                        LoginTextField(text: $confirmPassword, placeholder: "Confirm Password", imageName: "lock", isSecure: true)
+                        LoginTextField(text: $confirmPassword, placeholder: Constant.confirmPassword, imageName: "lock", isSecure: true)
                             .padding(.horizontal, 20)
                             .textContentType(.password)
                         
                         Spacer().frame(height: 60)
                         
                         NavigationLink(destination: PersonalInfoView(), isActive: $showProfileView) { EmptyView() }
-                        RoundedButton(text: "Next") {
+                        RoundedButton(text: Constant.next) {
                             nextTapped()
                         }
                         
-                        LoginBottomView(message: "Not the first time here?", buttonTitle: "Log In") {
+                        LoginBottomView(message: Constant.notFirstTimeHere, buttonTitle: Constant.log_in) {
                             isShowingSignup = false
                         }
                         
@@ -88,16 +88,16 @@ struct CreateAccountView: View {
     
     private func nextTapped() {
         if email.isEmpty || !email.isValidEmail {
-            alertMessage = "Please enter a valid email address."
+            alertMessage = Constant.enterValidEmail
             showsAlert = true
         } else if password.isEmpty {
-            alertMessage = "Please enter your password."
+            alertMessage = Constant.enterPassword
             showsAlert = true
         } else if confirmPassword.isEmpty {
-            alertMessage = "Please confirm your password."
+            alertMessage = Constant.confirmYourPassword
             showsAlert = true
         } else if confirmPassword != password {
-            alertMessage = "Your password do not match."
+            alertMessage = Constant.passwordNotMatch
             showsAlert = true
         } else {
             showLoading = true
@@ -108,7 +108,7 @@ struct CreateAccountView: View {
                     UserManager.shared.activeUser = user
                     showProfileView = true
                 } else {
-                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                    alertMessage = error?.localizedDescription ?? Constant.somethingWentWrong
                     showsAlert = true
                 }
             }

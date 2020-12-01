@@ -34,7 +34,7 @@ struct LoginView: View {
                 VStack {
                     
                     HStack {
-                        Text("Login")
+                        Text(Constant.login)
                             .font(.system(size: 42, weight: .bold))
                             .bold()
                             .foregroundColor(.white)
@@ -44,16 +44,16 @@ struct LoginView: View {
                     }
                     ScrollView {
                         VStack {
-                            LoginTextField(text: $email, placeholder: "Email", imageName: "envelope")
+                            LoginTextField(text: $email, placeholder: Constant.email, imageName: "envelope")
                                 .keyboardType(.emailAddress)
                                 .padding()
                             
-                            LoginTextField(text: $password, placeholder: "Password", imageName: "lock", isSecure: true)
+                            LoginTextField(text: $password, placeholder: Constant.password, imageName: "lock", isSecure: true)
                                 .padding()
                             
                             Spacer().frame(height: 60)
                             NavigationLink(destination: PersonalInfoView(), isActive: $showCompleteProfile) { EmptyView() }
-                            RoundedButton(text: "Login") {
+                            RoundedButton(text: Constant.login) {
                                 loginTapped()
                             }
                             
@@ -61,7 +61,7 @@ struct LoginView: View {
                             
                             Spacer().frame(height: 20)
                             
-                            LoginBottomView(message: "First time here?", buttonTitle: "Signup") {
+                            LoginBottomView(message: Constant.firstTimeHere, buttonTitle: Constant.signup) {
                                 isShowingSignupView = true
                             }
                         }
@@ -86,10 +86,10 @@ struct LoginView: View {
     
     private func loginTapped() {
         if email.isEmpty {
-            alertMessage = "Please enter email"
+            alertMessage = Constant.enterEmail
             showsAlert = true
         } else if password.isEmpty {
-            alertMessage = "Please enter your password"
+            alertMessage = Constant.enterPassword
             showsAlert = true
         } else {
             showLoading = true
@@ -108,7 +108,7 @@ struct LoginView: View {
                         showCompleteProfile = true
                     }
                 } else {
-                    alertMessage = error?.localizedDescription ?? "You have entered invalid credentials"
+                    alertMessage = error?.localizedDescription ?? Constant.invalidCredentials
                     showsAlert = true
                 }
             }

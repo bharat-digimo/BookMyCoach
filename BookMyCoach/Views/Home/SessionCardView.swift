@@ -15,7 +15,7 @@ struct SessionCardView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             if bookings.count == 0 {
-                Text("No booking available for you.")
+                Text(Constant.noBookingAvailable)
             } else {
                 TabView {
                     ForEach(bookings, id: \.id) { booking in
@@ -25,9 +25,9 @@ struct SessionCardView: View {
                                 CoachProfileView(booking: booking, shouldShowRating: false)
                                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
                                 HStack {
-                                    ContentLabel(labelName: "Session Date", value: "24th March, 2020")
+                                    ContentLabel(labelName: Constant.bookingDate, value: "24th March, 2020")
                                     Spacer()
-                                    ContentLabel(labelName: "Session Time", value: "09:00 AM")
+                                    ContentLabel(labelName: Constant.sessionTime, value: "09:00 AM")
                                 }
                                 .padding()
                                 Spacer()

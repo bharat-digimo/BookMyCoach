@@ -21,35 +21,35 @@ struct ProfileSettingsView: View {
                 Section {
                     NavigationLink(destination: PersonalInfoView(viewType: .edit)) {
                         HStack {
-                            Text("Update Profile")
+                            Text(Constant.updateProfile)
                             Spacer()
                         }
                     }
                     
                     NavigationLink(destination: ChangePasswordView()) {
                         HStack {
-                            Text("Change Password")
+                            Text(Constant.changePassword)
                             Spacer()
                         }
                     }
                     
                     NavigationLink(destination: SportsListView(viewType: .edit, oldSport: UserManager.shared.activeUser?.userSports?.first?.sport)) {
                         HStack {
-                            Text("Update Sport")
+                            Text(Constant.updateSport)
                             Spacer()
                         }
                     }
                     
-                    NavigationLink(destination: Text("Terms of Service")) {
+                    NavigationLink(destination: Text(Constant.termsOfService)) {
                         HStack {
-                            Text("Terms of Service")
+                            Text(Constant.termsOfService)
                             Spacer()
                         }
                     }
                     
-                    NavigationLink(destination: Text("Privacy Policy")) {
+                    NavigationLink(destination: Text(Constant.privacyPolicy)) {
                         HStack {
-                            Text("Privacy Policy")
+                            Text(Constant.privacyPolicy)
                             Spacer()
                         }
                     }
@@ -60,13 +60,13 @@ struct ProfileSettingsView: View {
                     Button(action: {
                         showAlert = true
                     }, label: {
-                        Text("Logout")
+                        Text(Constant.logout)
                             .font(.title3)
                             .bold()
                             .foregroundColor(.white)
                     })
                     .alert(isPresented:$showAlert) {
-                        Alert(title: Text("Logout"), message: Text("Are you sure you want to logout?"), primaryButton: .destructive(Text("Logout")) {
+                        Alert(title: Text(Constant.logout), message: Text(Constant.sureAboutLogout), primaryButton: .destructive(Text(Constant.logout)) {
                             logoutTapped()
                         }, secondaryButton: .cancel())
                     }
@@ -75,7 +75,7 @@ struct ProfileSettingsView: View {
                 }
                 .padding()
             }
-            .navigationBarTitle("Settings")
+            .navigationBarTitle(Constant.settings)
             .listStyle(GroupedListStyle())
             
             ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)

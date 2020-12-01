@@ -46,7 +46,7 @@ struct SportsListView: View {
             VStack {
                 if viewType == .create {
                     HStack {
-                        Text("Choose your sports.")
+                        Text(Constant.chooseSports)
                             .font(.system(size: 42, weight: .bold))
                             .bold()
                             .foregroundColor(.white)
@@ -83,7 +83,7 @@ struct SportsListView: View {
                         }
                     }
                 }
-                RoundedButton(text: viewType == .create ? "Next" : "Update") {
+                RoundedButton(text: viewType == .create ? Constant.next : Constant.update) {
                    nextTapped()
                 }
             }
@@ -114,12 +114,12 @@ struct SportsListView: View {
                         self.mode.wrappedValue.dismiss()
                     }
                 } else {
-                    alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                    alertMessage = error?.localizedDescription ?? Constant.somethingWentWrong
                     showsAlert = true
                 }
             })
         } else {
-            alertMessage = "Please select your sport to proceed."
+            alertMessage = Constant.chooseSportToProceed
             showsAlert = true
         }
     }

@@ -19,13 +19,13 @@ struct PlayerHome: View {
             VStack {
                 HeaderView()
                 ScrollView {
-                    CardHeader(category: "Your Coach")
+                    CardHeader(category: Constant.yourCoach)
                         .padding(.horizontal)
                     CardView(bookings: bookings)
-                    CardHeader(category: "All Sports")
+                    CardHeader(category: Constant.allSports)
                         .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
                     SportsList(sports: sports)
-                    CardHeader(category: "Nearby Coaches")
+                    CardHeader(category: Constant.nearbyCoaches)
                         .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
                     NearbyCoach()
                         .padding()

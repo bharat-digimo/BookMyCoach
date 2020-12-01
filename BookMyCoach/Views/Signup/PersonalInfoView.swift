@@ -37,7 +37,7 @@ struct PersonalInfoView: View {
         self.viewType = viewType
         if viewType == .edit {
             self._navBarHidden = State(wrappedValue: self.viewType == .create)
-            self.titleText = "Edit profile"
+            self.titleText = Constant.editProfile
         }
     }
     
@@ -68,7 +68,7 @@ struct PersonalInfoView: View {
             VStack {
                 if viewType == .create {
                     HStack {
-                        Text("Tell us more about you.")
+                        Text(Constant.tellUSMore)
                             .font(.system(size: 42, weight: .bold))
                             .bold()
                             .foregroundColor(.white)
@@ -110,36 +110,36 @@ struct PersonalInfoView: View {
                             .sheet(isPresented: $shouldPresentImagePicker) {
                                 ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
                             }.actionSheet(isPresented: $shouldPresentActionSheet) { () -> ActionSheet in
-                                ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
+                                ActionSheet(title: Text(Constant.chooseMode), message: Text(Constant.chooseModeMessage), buttons: [ActionSheet.Button.default(Text(Constant.camera), action: {
                                     self.shouldPresentImagePicker = true
                                     self.shouldPresentCamera = true
-                                }), ActionSheet.Button.default(Text("Photo Library"), action: {
+                                }), ActionSheet.Button.default(Text(Constant.photoLibrary), action: {
                                     self.shouldPresentImagePicker = true
                                     self.shouldPresentCamera = false
                                 }), ActionSheet.Button.cancel()])
                             }
-                            Text("Choose a profile photo (Optional)")
+                            Text(Constant.chooseProfilePic)
                                 .foregroundColor(.white)
                                 .padding(.leading)
                         }.padding(.horizontal)
                                                 
-                        LoginTextField(text: fullName, placeholder: "Full Name", imageName: "person")
+                        LoginTextField(text: fullName, placeholder: Constant.fullName, imageName: "person")
                             .padding(.horizontal, 20)
                             .padding(.bottom, 10)
                         
                         if user?.userType == .coach {
-                            LoginTextField(text: hourlyRate, placeholder: "Hourly Rate", imageName: "dollarsign.circle")
+                            LoginTextField(text: hourlyRate, placeholder: Constant.hourlyRate, imageName: "dollarsign.circle")
                                 .keyboardType(.numberPad)
                                 .padding(.horizontal, 20)
                                 .padding(.bottom, 10)
                         }
                         
-                        LoginTextField(text: bio, placeholder: "About you", imageName: "highlighter")
+                        LoginTextField(text: bio, placeholder: Constant.aboutYou, imageName: "highlighter")
                             .padding(.horizontal, 20)
                         
                         Spacer().frame(height: 40)
                         NavigationLink(destination: SportsListView(), isActive: $showSportsList) { EmptyView() }
-                        RoundedButton(text: viewType == .create ? "Next" : "Update") {
+                        RoundedButton(text: viewType == .create ? Constant.next : Constant.update) {
                             nextTapped()
                         }
                     }
@@ -183,7 +183,7 @@ struct PersonalInfoView: View {
                     self.mode.wrappedValue.dismiss()
                 }
             } else {
-                alertMessage = error?.localizedDescription ?? "Something went wrong!!"
+                alertMessage = error?.localizedDescription ?? Constant.somethingWentWrong
                 showsAlert = true
             }
         })
@@ -192,19 +192,19 @@ struct PersonalInfoView: View {
     private func nextTapped() {
         let user = userManager.activeUser
         if user?.fullName?.isEmpty == true {
-            alertMessage = "Please enter your full name."
+            alertMessage = Constant.enterFullName
             showsAlert = true
         }  else if user?.bio?.isEmpty == true {
-            alertMessage = "About me cannot be blank."
+            alertMessage = Constant.enterAboutMe
             showsAlert = true
         } else {
             if user?.userType == UserType.coach {
                 if user?.price?.description.isEmpty == true {
-                    alertMessage = "Please enter your hourly rate."
+                    alertMessage = Constant.enterHourlyRate
                     showsAlert = true
                     return
                 } else if user?.price ?? 0.0 == 0.0 {
-                    alertMessage = "Hourly rate should be greater than 0."
+                    alertMessage = Constant.nonZeroHourlyRate
                     showsAlert = true
                     return
                 }
