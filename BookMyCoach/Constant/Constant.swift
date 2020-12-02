@@ -53,6 +53,7 @@ struct Constant {
     
     static let upcomingSession = "Upcoming Session"
     static let recentBookingInvitation = "Recent Booking Invitations"
+    static let noRecentBookingAvailable = "No new booking for you."
     
     static let noBookingAvailable = "No booking available for you."
     static let bookingDate = "Booking Date"
@@ -79,4 +80,16 @@ struct Constant {
     
     static let noLocation = "No location found"
     static let locationRequired = "Your current location is required."
+    
+    
+}
+
+extension Date {
+    
+    struct Format {
+        static let serverFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        static let yyyyMMddhhmma = "yyyy-MM-dd hh:mm a"
+        static let hhmma = "hh:mm a"
+    }
+    
 }

@@ -10,16 +10,34 @@ import SwiftUI
 struct RecentBooking: View {
     
     var bookings: [Booking]
+    var acceptBookingAction: ((Booking, Bool) -> ())?
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                ForEach(bookings, id: \.id) { booking in
-                    BookingInvitationCard(booking: booking)
+        if bookings.count == 0 {
+            ZStack {
+                Color.white.opacity(0.2)
+                HStack {
+                    Spacer()
+                    Text(Constant.noRecentBookingAvailable)
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                }
+                .padding()
+                .padding(.vertical, 50)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+            .padding()
+        } else {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(bookings, id: \.id) { booking in
+                        BookingInvitationCard(booking: booking, acceptBookingAction: acceptBookingAction)
+                    }
                 }
             }
+            .foregroundColor(.white)
         }
-        .foregroundColor(.white)
     }
 }
 
@@ -36,6 +54,7 @@ struct RecentBooking_Previews: PreviewProvider {
 struct BookingInvitationCard: View {
     
     var booking: Booking
+    var acceptBookingAction: ((Booking, Bool) -> ())?
     
     var body: some View {
         LazyVStack {
@@ -54,12 +73,16 @@ struct BookingInvitationCard: View {
                 .padding(.leading, 8)
                 Spacer()
                 HStack(alignment: .top, spacing: 20) {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        acceptBookingAction?(booking, true)
+                    }, label: {
                         Image(systemName: "checkmark.circle")
                             .font(.title)
                             .foregroundColor(.green)
                     })
-                    Button(action: {}, label: {
+                    Button(action: {
+                        acceptBookingAction?(booking, false)
+                    }, label: {
                         Image(systemName: "xmark.circle")
                             .font(.title)
                             .foregroundColor(.red)

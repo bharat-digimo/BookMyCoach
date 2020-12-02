@@ -13,24 +13,28 @@ struct CoachProfileView: View {
     let booking: Booking
     let shouldShowRating: Bool
     
+    var user: User? {
+        return booking.coach ?? booking.user
+    }
+    
     var body: some View {
         LazyVStack {
             HStack {
-                ImageLoader(url: booking.coach?.profilePhoto, name: booking.coach?.fullName)
+                ImageLoader(url: user?.profilePhoto, name: user?.fullName)
                     .frame(width: 60, height: 60)
                     .cornerRadius(30)
                 VStack(alignment: .leading) {
-                    Text(booking.coach?.fullName ?? "")
+                    Text(user?.fullName ?? "")
                         .font(.title2)
                         .bold()
-                    Text(booking.coach?.userSports?.first?.sport?.name ?? "")
+                    Text(user?.userSports?.first?.sport?.name ?? "")
                         .font(.subheadline)
                         .foregroundColor(Color.white.opacity(0.7))
                     Text(booking.status.rawValue.uppercased())
                         .font(.caption2)
                         .padding(.all, 4)
                         .padding(.horizontal, 8)
-                        .background(Color.yellow.opacity(0.6))
+                        .background(booking.status == .active ? Color.green.opacity(0.6) : Color.yellow.opacity(0.6))
                         .foregroundColor(.white)
                         .cornerRadius(4)
                 }
@@ -40,7 +44,7 @@ struct CoachProfileView: View {
                     HStack(alignment: .top) {
                         Image(systemName: "star.fill")
                             .foregroundColor(.yellow)
-                        Text(booking.coach?.rating?.description ?? "5.0")
+                        Text(user?.rating?.description ?? "5.0")
                             .bold()
                     }
                 }

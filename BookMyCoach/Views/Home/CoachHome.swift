@@ -9,10 +9,9 @@ import SwiftUI
 
 struct CoachHome: View {
     
-    @State private var bookings: [Booking] = [booking1, booking2, booking3, booking4]
-    @State private var sports: [Sport] = allSports
-    
+    @ObservedObject var bookingVM = MyBookingViewModel()
     @ObservedObject var locationManager = LocationManager()
+    @State private var sports: [Sport] = allSports
     
     var body: some View {
         ZStack {
@@ -23,16 +22,23 @@ struct CoachHome: View {
                 ScrollView {
                     CardHeader(category: Constant.upcomingSession)
                         .padding(.horizontal)
-                    SessionCardView(bookings: bookings)
+                    SessionCardView(bookings: bookingVM.myBookings)
                     CardHeader(category: Constant.recentBookingInvitation)
                         .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
-                    RecentBooking(bookings: [booking5, booking8, booking9, booking10])
+                    RecentBooking(bookings: bookingVM.pendingRequests) { (booking, isAccept) in
+                        bookingVM.acceptBooking(booking, isAccept: isAccept)
+                    }
                 }
             }
             .foregroundColor(.white)
             .background(Color.black)
         }
+        .onAppear(perform: {
+            bookingVM.getMyBookings()
+            bookingVM.getMyPendingBookings()
+        })
     }
+    
 }
 
 struct CoachHome_Previews: PreviewProvider {

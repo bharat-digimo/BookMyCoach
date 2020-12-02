@@ -13,4 +13,5 @@ struct BookCoachRequest: Codable {
 
 struct RespondBookingRequest: Codable {
     let bookingId: Int
+    let isAccepted: Bool
 }

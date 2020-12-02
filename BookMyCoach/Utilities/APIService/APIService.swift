@@ -20,7 +20,7 @@ enum APIService: DPRequestProtocol {
     case bookCoach(request: BookCoachRequest)
     case pendingRequestForCoach
     case pendingRequestByPlayer
-    case respondBookingRequest(request: RespondBookingRequest)
+    case acceptBookingRequest(request: RespondBookingRequest)
     case getMyBookings
     
     func baseUrl() -> String? {
@@ -41,13 +41,13 @@ enum APIService: DPRequestProtocol {
     
     func dateEncodingStrategy() -> JSONEncoder.DateEncodingStrategy? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.dateFormat = Date.Format.serverFormat
         return .formatted(formatter)
     }
     
     func dateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formatter.dateFormat = Date.Format.serverFormat
         return .formatted(formatter)
     }
 }

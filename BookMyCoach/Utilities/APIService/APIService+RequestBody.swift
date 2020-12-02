@@ -25,7 +25,7 @@ extension APIService {
             return DPRequestBody(model: request)
         case let .bookCoach(request):
             return DPRequestBody(model: request)
-        case let .respondBookingRequest(request):
+        case let .acceptBookingRequest(request):
             return DPRequestBody(model: request)
         default:
             return DPRequestBody()

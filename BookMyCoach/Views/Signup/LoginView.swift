@@ -16,8 +16,7 @@ struct LoginView: View {
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
-    @State private var showPlayerDashboard = false
-    @State private var showCoachDashboard = false
+    @State private var showDashboard = false
         
     init() {
         //Use this if NavigationBarTitle is with Large Font
@@ -71,11 +70,12 @@ struct LoginView: View {
                 ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
                     .frame(width: 100, height: 100)
             }
-            .fullScreenCover(isPresented: $showPlayerDashboard, content: {
-                PlayerTabView()
-            })
-            .fullScreenCover(isPresented: $showCoachDashboard, content: {
-                CoachTabView()
+            .fullScreenCover(isPresented: $showDashboard, content: {
+                if UserManager.shared.activeUser?.userType == UserType.player {
+                    PlayerTabView()
+                } else {
+                    CoachTabView()
+                }
             })
             .alert(isPresented: $showsAlert, content: {
                 Alert(title: Text(alertMessage))
@@ -99,11 +99,7 @@ struct LoginView: View {
                 if error == nil {
                     UserManager.shared.activeUser = user
                     if user?.isProfileComplete == true {
-                        if user?.userType == UserType.player {
-                            showPlayerDashboard = true
-                        } else {
-                            showCoachDashboard = true
-                        }
+                        showDashboard = true
                     } else {
                         showCompleteProfile = true
                     }

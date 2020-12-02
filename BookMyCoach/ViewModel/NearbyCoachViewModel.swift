@@ -12,11 +12,6 @@ class NearbyCoachViewModel: ObservableObject {
     
     @Published var coaches: [User] = []
     @Published var isShowLoader: Bool = false
-        
-    func updateCoachBooking(_ coachId: Int, booking: Booking) {
-        var coach = coaches.filter({$0.id == coachId}).first
-        coach?.bookings?.append(booking)
-    }
     
     func getNearByCoaches(_ location: CLLocation?) {
         isShowLoader = true
@@ -30,11 +25,12 @@ class NearbyCoachViewModel: ObservableObject {
         }
     }
     
-    func bookCoach(_ coach: User) {
+    func bookCoach(_ coach: User, handler: @escaping () -> ()) {
+        coaches.removeAll { (item) -> Bool in
+            return item.id == coach.id
+        }
         coach.bookCoach { (booking, error) in
-            if let booking = booking {
-                self.updateCoachBooking(coach.id, booking: booking)
-            }
+            handler()
         }
     }
 }

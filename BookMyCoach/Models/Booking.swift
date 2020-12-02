@@ -37,4 +37,18 @@ extension Booking {
         }
     }
     
+    static func getPendingBookingRequestForCoach(_ handler: @escaping ([Booking], Error?) -> ()) {
+        let service = APIService.pendingRequestForCoach
+        service.fetchList(Booking.self) { (list, error, _) in
+            handler(list ?? [], error)
+        }
+    }
+    
+    func acceptBooking(_ isAccept: Bool, handler: @escaping (Bool, Error?) -> ()) {
+        let service = APIService.acceptBookingRequest(request: RespondBookingRequest(bookingId: self.id, isAccepted: isAccept))
+        service.submit { (response) in
+            handler(response.isSuccess, response.error)
+        }
+    }
+    
 }

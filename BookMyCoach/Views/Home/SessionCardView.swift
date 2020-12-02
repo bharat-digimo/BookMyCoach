@@ -13,10 +13,23 @@ struct SessionCardView: View {
     let screen = UIScreen.main.bounds
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            if bookings.count == 0 {
-                Text(Constant.noBookingAvailable)
-            } else {
+        if bookings.count == 0 {
+            ZStack {
+                Color.white.opacity(0.2)
+                HStack {
+                    Spacer()
+                    Text(Constant.noBookingAvailable)
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                }
+                .padding()
+                .padding(.vertical, 50)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+            .padding()
+        } else {
+            ScrollView(.horizontal, showsIndicators: false) {
                 TabView {
                     ForEach(bookings, id: \.id) { booking in
                         ZStack {
@@ -25,9 +38,9 @@ struct SessionCardView: View {
                                 CoachProfileView(booking: booking, shouldShowRating: false)
                                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
                                 HStack {
-                                    ContentLabel(labelName: Constant.bookingDate, value: "24th March, 2020")
+                                    ContentLabel(labelName: Constant.bookingDate, value: booking.createdAt?.format(Date.Format.yyyyMMddhhmma) ?? "")
                                     Spacer()
-                                    ContentLabel(labelName: Constant.sessionTime, value: "09:00 AM")
+                                    ContentLabel(labelName: Constant.sessionTime, value: booking.createdAt?.format(Date.Format.hhmma) ?? "")
                                 }
                                 .padding()
                                 Spacer()
@@ -41,6 +54,7 @@ struct SessionCardView: View {
                 .foregroundColor(.white)
             }
         }
+        
     }
 }
 

@@ -33,7 +33,7 @@ extension APIService {
             return DPRequestPath(method: .GET, endPoint: "/coach/booking/pending")
         case .pendingRequestByPlayer:
             return DPRequestPath(method: .GET, endPoint: "/user/booking/pending")
-        case .respondBookingRequest:
+        case .acceptBookingRequest:
             return DPRequestPath(method: .PATCH, endPoint: "/coach/booking/accept")
         case .getMyBookings:
             return DPRequestPath(method: .GET, endPoint: "/booking")

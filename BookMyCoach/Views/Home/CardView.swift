@@ -38,9 +38,9 @@ struct CardView: View {
                                 CoachProfileView(booking: booking, shouldShowRating: true)
                                 Color.gray.frame(height: CGFloat(1) / UIScreen.main.scale)
                                 HStack {
-                                    ContentLabel(labelName: Constant.bookingDate, value: "24th March, 2020")
+                                    ContentLabel(labelName: Constant.bookingDate, value: booking.createdAt?.format(Date.Format.yyyyMMddhhmma) ?? "")
                                     Spacer()
-                                    ContentLabel(labelName: Constant.sessionTime, value: "09:00 AM")
+                                    ContentLabel(labelName: Constant.sessionTime, value: booking.sessionStartDateTime?.format(Date.Format.hhmma) ?? "")
                                 }
                                 .padding()
                                 Spacer()
