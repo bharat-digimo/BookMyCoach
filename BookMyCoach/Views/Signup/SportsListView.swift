@@ -12,6 +12,7 @@ struct SportsListView: View {
         
     let sports = allSports
     
+    @EnvironmentObject var userManager: UserManager
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     @State private var navBarHidden: Bool = true
@@ -33,8 +34,12 @@ struct SportsListView: View {
         }
     }
     
-    func image(for state: Bool) -> Image {
-        return state ? Image(systemName: "checkmark.circle") : Image(systemName: "circle")
+    func image(for sport: Sport) -> Image {
+        let sportId = selectedSport?.id ?? userManager.activeUser?.userSports?.first?.sport?.id
+        if sportId == sport.id {
+            return Image(systemName: "checkmark.circle")
+        }
+        return Image(systemName: "circle")
     }
     
     var body: some View {
@@ -68,7 +73,7 @@ struct SportsListView: View {
                                     .bold()
                                     .foregroundColor(.white)
                                 Spacer()
-                                self.image(for: (sport.id == selectedSport?.id))
+                                self.image(for: sport)
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.white)
@@ -86,9 +91,10 @@ struct SportsListView: View {
                 RoundedButton(text: viewType == .create ? Constant.next : Constant.update) {
                    nextTapped()
                 }
+                .padding()
             }
             .fullScreenCover(isPresented: $showContentView, content: {
-                CoachTabBar()
+                CoachTabView()
             })
             
             ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)

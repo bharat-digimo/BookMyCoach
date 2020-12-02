@@ -40,11 +40,11 @@ struct BookingInvitationCard: View {
     var body: some View {
         LazyVStack {
             HStack {
-                ImageLoader(url: booking.coach.profilePhoto, name: booking.coach.fullName)
+                ImageLoader(url: booking.coach?.profilePhoto, name: booking.coach?.fullName)
                     .frame(width: 60, height: 60)
                     .cornerRadius(30)
                 VStack(alignment: .leading) {
-                    Text(booking.coach.fullName ?? "")
+                    Text(booking.coach?.fullName ?? "")
                         .font(.title2)
                         .bold()
                     Text("24th Nov, 2020 at 09:30 AM")

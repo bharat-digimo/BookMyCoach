@@ -88,7 +88,7 @@ struct CoachProfileCard: View {
                         bookingAction?(coach)
                     }
                 }, label: {
-                    Text(Constant.bookNow)
+                    Text(coach.bookingStatus == .none ? Constant.bookNow : coach.bookingStatus.rawValue.capitalized)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .font(.title3)
                         .padding(.vertical, 10)

@@ -24,7 +24,7 @@ class NearbyCoachViewModel: ObservableObject {
         User.nearbyCoach(NearbyCoachRequest(latitude: location?.latitude ?? user?.latitude ?? 0, longitude: location?.longitude ?? user?.longitude ?? 0)) { (list, error) in
             self.isShowLoader = false
             if error == nil {
-                self.coaches = list ?? []
+                self.coaches = (list ?? []).filter({$0.bookingStatus == .none})
                 print("Fetched nearby coaches", self.coaches.count, list?.count ?? 0)
             }
         }

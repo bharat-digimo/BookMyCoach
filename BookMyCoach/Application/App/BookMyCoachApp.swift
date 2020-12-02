@@ -23,9 +23,9 @@ struct BookMyCoachApp: App {
             } else {
                 if userManager.activeUser?.isProfileComplete == true {
                     if userManager.activeUser?.userType == UserType.coach {
-                        CoachTabBar().environmentObject(userManager)
+                        CoachTabView().environmentObject(userManager)
                     } else {
-                        ContentView().environmentObject(userManager)
+                        PlayerTabView().environmentObject(userManager)
                     }
                 } else {
                     NavigationView {

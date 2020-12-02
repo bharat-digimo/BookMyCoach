@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324187DD2577B6560068BB25 /* CoachProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324187DC2577B6560068BB25 /* CoachProfileViewModel.swift */; };
 		329C39D7256C17FA00B69E17 /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39D6256C17FA00B69E17 /* GlobalHelper.swift */; };
 		329C39DC256CC66200B69E17 /* SportsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39DB256CC66100B69E17 /* SportsList.swift */; };
 		329C39DF256CC8C300B69E17 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39DE256CC8C300B69E17 /* Sport.swift */; };
 		329C39E2256CD32800B69E17 /* NearbyCoach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E1256CD32700B69E17 /* NearbyCoach.swift */; };
-		329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E5256D0B8200B69E17 /* CoachTabBar.swift */; };
+		329C39E6256D0B8200B69E17 /* CoachTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E5256D0B8200B69E17 /* CoachTabView.swift */; };
 		329C39EA256D0DCC00B69E17 /* CoachHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39E9256D0DCB00B69E17 /* CoachHome.swift */; };
 		329C39ED256D0FB300B69E17 /* SessionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39EC256D0FB300B69E17 /* SessionCardView.swift */; };
 		329C39F0256D10D600B69E17 /* RecentBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39EF256D10D600B69E17 /* RecentBooking.swift */; };
@@ -31,7 +32,7 @@
 		4F0DC43E256C1B2C002F2364 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F0DC43D256C1B2C002F2364 /* KingfisherSwiftUI */; };
 		4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0DC463256D143A002F2364 /* ProfileView.swift */; };
 		4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */; };
-		4F2D8E42256BD500001A14C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E41256BD500001A14C3 /* ContentView.swift */; };
+		4F2D8E42256BD500001A14C3 /* PlayerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E41256BD500001A14C3 /* PlayerTabView.swift */; };
 		4F2D8E44256BD503001A14C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2D8E43256BD503001A14C3 /* Assets.xcassets */; };
 		4F2D8E47256BD503001A14C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2D8E46256BD503001A14C3 /* Preview Assets.xcassets */; };
 		4F2D8E50256BD8C1001A14C3 /* PlayerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E4F256BD8C1001A14C3 /* PlayerHome.swift */; };
@@ -72,16 +73,16 @@
 		4FB6DDC725764ED6001304F3 /* CoachProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDC625764ED6001304F3 /* CoachProfileView.swift */; };
 		4FB6DDCB257688C3001304F3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4FB6DDCA257688C3001304F3 /* FirebaseStorage */; };
 		4FB6DDCE25768920001304F3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDCD25768920001304F3 /* StorageManager.swift */; };
-		4FB6DDD1257689B5001304F3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */; };
 		4FB6DDD425768F66001304F3 /* UIImage+Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DDD325768F66001304F3 /* UIImage+Compression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		324187DC2577B6560068BB25 /* CoachProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachProfileViewModel.swift; sourceTree = "<group>"; };
 		329C39D6256C17FA00B69E17 /* GlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
 		329C39DB256CC66100B69E17 /* SportsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsList.swift; sourceTree = "<group>"; };
 		329C39DE256CC8C300B69E17 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
 		329C39E1256CD32700B69E17 /* NearbyCoach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyCoach.swift; sourceTree = "<group>"; };
-		329C39E5256D0B8200B69E17 /* CoachTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachTabBar.swift; sourceTree = "<group>"; };
+		329C39E5256D0B8200B69E17 /* CoachTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachTabView.swift; sourceTree = "<group>"; };
 		329C39E9256D0DCB00B69E17 /* CoachHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachHome.swift; sourceTree = "<group>"; };
 		329C39EC256D0FB300B69E17 /* SessionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCardView.swift; sourceTree = "<group>"; };
 		329C39EF256D10D600B69E17 /* RecentBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBooking.swift; sourceTree = "<group>"; };
@@ -101,7 +102,7 @@
 		4F0DC463256D143A002F2364 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4F2D8E3C256BD500001A14C3 /* BookMyCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMyCoachApp.swift; sourceTree = "<group>"; };
-		4F2D8E41256BD500001A14C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4F2D8E41256BD500001A14C3 /* PlayerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTabView.swift; sourceTree = "<group>"; };
 		4F2D8E43256BD503001A14C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F2D8E46256BD503001A14C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4F2D8E48256BD503001A14C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		4FB6DDC325764A8A001304F3 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		4FB6DDC625764ED6001304F3 /* CoachProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachProfileView.swift; sourceTree = "<group>"; };
 		4FB6DDCD25768920001304F3 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FB6DDD325768F66001304F3 /* UIImage+Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Compression.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,13 +159,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		329C39D5256C17FA00B69E17 /* Helper */ = {
+		324187BF25779DE70068BB25 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				4F6038872576A06600129F73 /* Constant.swift */,
+				4F0337172572318A00F1BF18 /* Colors.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		324187C125779DFE0068BB25 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				324187C625779F620068BB25 /* Plist */,
+				324187C525779F590068BB25 /* App */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		324187C325779E5D0068BB25 /* BaseTabView */ = {
+			isa = PBXGroup;
+			children = (
+				329C39E5256D0B8200B69E17 /* CoachTabView.swift */,
+				4F2D8E41256BD500001A14C3 /* PlayerTabView.swift */,
+			);
+			path = BaseTabView;
+			sourceTree = "<group>";
+		};
+		324187C525779F590068BB25 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		324187C625779F620068BB25 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				4F2D8E48256BD503001A14C3 /* Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		324187CA25779F8B0068BB25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				324187D025779FD30068BB25 /* Firebase */,
+				4F2D8E43256BD503001A14C3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		324187D025779FD30068BB25 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		324187D52577A00C0068BB25 /* GlobalHelper */ = {
 			isa = PBXGroup;
 			children = (
 				329C39D6256C17FA00B69E17 /* GlobalHelper.swift */,
-				4F6038872576A06600129F73 /* Constant.swift */,
+			);
+			path = GlobalHelper;
+			sourceTree = "<group>";
+		};
+		329C39D5256C17FA00B69E17 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				324187D52577A00C0068BB25 /* GlobalHelper */,
+				4F03373B257299E000F1BF18 /* Managers */,
 				4F03374325729B8900F1BF18 /* Extension */,
-				4F0337172572318A00F1BF18 /* Colors.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -187,6 +253,7 @@
 				4F60389025776C2200129F73 /* PlayerHomeViewModel.swift */,
 				4F60389325776E6C00129F73 /* MyBookingViewModel.swift */,
 				4F60389625776E9300129F73 /* NearbyCoachViewModel.swift */,
+				324187DC2577B6560068BB25 /* CoachProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -194,7 +261,6 @@
 		4F03373B257299E000F1BF18 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */,
 				4FB6DDCD25768920001304F3 /* StorageManager.swift */,
 				4F03374025729A0300F1BF18 /* UserManager.swift */,
 				4F60388A25774D3100129F73 /* LocationManager.swift */,
@@ -241,17 +307,14 @@
 		4F2D8E3E256BD500001A14C3 /* BookMyCoach */ = {
 			isa = PBXGroup;
 			children = (
-				4F2D8E3F256BD500001A14C3 /* BookMyCoachApp.swift */,
-				329C39E5256D0B8200B69E17 /* CoachTabBar.swift */,
-				4F2D8E41256BD500001A14C3 /* ContentView.swift */,
+				324187C125779DFE0068BB25 /* Application */,
+				324187BF25779DE70068BB25 /* Constant */,
 				329C39D5256C17FA00B69E17 /* Helper */,
-				4F2D8E53256BD92E001A14C3 /* Views */,
 				4F2D8E5D256C0762001A14C3 /* Models */,
+				4F2D8E53256BD92E001A14C3 /* Views */,
 				4F0337282572609700F1BF18 /* ViewModel */,
-				4F03373B257299E000F1BF18 /* Managers */,
 				4FB6DD642573ABB9001304F3 /* Utilities */,
-				4F2D8E43256BD503001A14C3 /* Assets.xcassets */,
-				4F2D8E48256BD503001A14C3 /* Info.plist */,
+				324187CA25779F8B0068BB25 /* Resources */,
 				4F2D8E45256BD503001A14C3 /* Preview Content */,
 			);
 			path = BookMyCoach;
@@ -283,8 +346,9 @@
 		4F2D8E53256BD92E001A14C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4F03370F2572224B00F1BF18 /* Signup */,
 				4F2D8E55256BD93B001A14C3 /* HelperViews */,
+				324187C325779E5D0068BB25 /* BaseTabView */,
+				4F03370F2572224B00F1BF18 /* Signup */,
 				4F2D8E52256BD922001A14C3 /* Home */,
 				4F0DC466256D1606002F2364 /* Profile */,
 			);
@@ -319,6 +383,7 @@
 		4FB6DD642573ABB9001304F3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4FB6DD942573AF5F001304F3 /* Requests */,
 				4FB6DD862573AC46001304F3 /* APIService */,
 				4FB6DD672573AC00001304F3 /* RequestConnection */,
 			);
@@ -373,7 +438,6 @@
 		4FB6DD862573AC46001304F3 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				4FB6DD942573AF5F001304F3 /* Requests */,
 				4FB6DD8A2573AC46001304F3 /* APIService.swift */,
 				4FB6DD892573AC46001304F3 /* APIService+RequestPath.swift */,
 				4FB6DD8B2573AC46001304F3 /* APIService+RequestBody.swift */,
@@ -460,7 +524,6 @@
 			files = (
 				4F2D8E47256BD503001A14C3 /* Preview Assets.xcassets in Resources */,
 				4F2D8E44256BD503001A14C3 /* Assets.xcassets in Resources */,
-				4FB6DDD1257689B5001304F3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,8 +545,8 @@
 				4FB6DD962573AF7C001304F3 /* UserRequest.swift in Sources */,
 				329C39ED256D0FB300B69E17 /* SessionCardView.swift in Sources */,
 				4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */,
-				329C39E6256D0B8200B69E17 /* CoachTabBar.swift in Sources */,
-				4F2D8E42256BD500001A14C3 /* ContentView.swift in Sources */,
+				329C39E6256D0B8200B69E17 /* CoachTabView.swift in Sources */,
+				4F2D8E42256BD500001A14C3 /* PlayerTabView.swift in Sources */,
 				4FB6DDB22574FCFB001304F3 /* ProfileSettingsView.swift in Sources */,
 				4F2D8E40256BD500001A14C3 /* BookMyCoachApp.swift in Sources */,
 				4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */,
@@ -504,6 +567,7 @@
 				329C39EA256D0DCC00B69E17 /* CoachHome.swift in Sources */,
 				4FB6DD7E2573AC1B001304F3 /* DPRequestProtocol.swift in Sources */,
 				4FB6DD782573AC1B001304F3 /* DPRequestConnection.swift in Sources */,
+				324187DD2577B6560068BB25 /* CoachProfileViewModel.swift in Sources */,
 				4F0337112572225E00F1BF18 /* LoginView.swift in Sources */,
 				329C39E2256CD32800B69E17 /* NearbyCoach.swift in Sources */,
 				4F60389725776E9300129F73 /* NearbyCoachViewModel.swift in Sources */,
@@ -662,15 +726,15 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookMyCoach/Preview Content\"";
-				DEVELOPMENT_TEAM = APAFPPCAVJ;
+				DEVELOPMENT_TEAM = CAML4AR5T7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BookMyCoach/Info.plist;
+				INFOPLIST_FILE = BookMyCoach/Application/Plist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.digimo.BookMyCoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productivise.bmc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -686,15 +750,15 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookMyCoach/Preview Content\"";
-				DEVELOPMENT_TEAM = APAFPPCAVJ;
+				DEVELOPMENT_TEAM = CAML4AR5T7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = BookMyCoach/Info.plist;
+				INFOPLIST_FILE = BookMyCoach/Application/Plist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.digimo.BookMyCoach;
+				PRODUCT_BUNDLE_IDENTIFIER = com.productivise.bmc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

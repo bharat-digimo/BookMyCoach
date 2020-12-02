@@ -25,6 +25,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to capture image for your profile picture</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need your current location to fetch nearby coaches.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -51,9 +55,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Need camera access to capture image for your profile picture</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Need your current location to fetch nearby coaches.</string>
 </dict>
 </plist>

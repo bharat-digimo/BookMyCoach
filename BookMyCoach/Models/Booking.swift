@@ -10,9 +10,11 @@ import Foundation
 struct Booking: Codable {
     var id: Int
     var userId: Int
-    var coach: User
+    var coach: User?
+    var user: User?
     var responseDate: Date?
     var createdAt: Date?
+    var sessionStartDateTime: Date?
     var sessionTime: String?
     var status: BookingStatus
     

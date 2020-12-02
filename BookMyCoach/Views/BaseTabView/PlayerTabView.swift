@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PlayerTabView.swift
 //  BookMyCoach
 //
 //  Created by Bharat Lal on 11/23/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PlayerTabView: View {
     
     @EnvironmentObject var userManager: UserManager
     
@@ -49,8 +49,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PlayerTabView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PlayerTabView()
     }
 }

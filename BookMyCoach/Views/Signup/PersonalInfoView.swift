@@ -153,7 +153,7 @@ struct PersonalInfoView: View {
                 .frame(width: 100, height: 100)
         }
         .fullScreenCover(isPresented: $showPlayerDashboard, content: {
-            ContentView()
+            PlayerTabView()
         })
         .navigationTitle(titleText)
         .navigationBarHidden(navBarHidden)

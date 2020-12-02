@@ -61,3 +61,4 @@ playground.xcworkspace
 Pods
 Podfile.lock
 Pods/
+GoogleService-Info.plist

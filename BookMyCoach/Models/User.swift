@@ -23,7 +23,8 @@ struct User: Codable {
     var bookings: [Booking]? = []
     
     var bookingStatus: Booking.BookingStatus {
-        if let status = Booking.BookingStatus(rawValue: bookings?.first?.status.rawValue ?? "none") {
+        let myBooking = bookings?.filter({$0.userId == UserManager.shared.activeUser?.id}).first
+        if let status = Booking.BookingStatus(rawValue: myBooking?.status.rawValue ?? "none") {
             return status
         }
         return .none

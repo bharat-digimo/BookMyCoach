@@ -39,4 +39,15 @@ enum APIService: DPRequestProtocol {
         return "data"
     }
     
+    func dateEncodingStrategy() -> JSONEncoder.DateEncodingStrategy? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return .formatted(formatter)
+    }
+    
+    func dateDecodingStrategy() -> JSONDecoder.DateDecodingStrategy? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return .formatted(formatter)
+    }
 }

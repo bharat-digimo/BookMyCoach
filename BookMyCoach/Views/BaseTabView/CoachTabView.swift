@@ -1,5 +1,5 @@
 //
-//  CoachTabBar.swift
+//  CoachTabView.swift
 //  BookMyCoach
 //
 //  Created by Bharat Lal on 24/11/20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CoachTabBar: View {
+struct CoachTabView: View {
     
     var body: some View {
         TabView {
@@ -52,8 +52,8 @@ struct CoachTabBar: View {
     }
 }
 
-struct CoachTabBar_Previews: PreviewProvider {
+struct CoachTabView_Previews: PreviewProvider {
     static var previews: some View {
-        CoachTabBar()
+        CoachTabView()
     }
 }
