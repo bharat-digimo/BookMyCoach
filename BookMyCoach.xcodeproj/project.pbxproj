@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		324187DD2577B6560068BB25 /* CoachProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324187DC2577B6560068BB25 /* CoachProfileViewModel.swift */; };
+		324187E72577CF5B0068BB25 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 324187E62577CF5B0068BB25 /* GoogleService-Info.plist */; };
 		329C39D7256C17FA00B69E17 /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39D6256C17FA00B69E17 /* GlobalHelper.swift */; };
 		329C39DC256CC66200B69E17 /* SportsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39DB256CC66100B69E17 /* SportsList.swift */; };
 		329C39DF256CC8C300B69E17 /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C39DE256CC8C300B69E17 /* Sport.swift */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		324187DC2577B6560068BB25 /* CoachProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachProfileViewModel.swift; sourceTree = "<group>"; };
+		324187E62577CF5B0068BB25 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		329C39D6256C17FA00B69E17 /* GlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
 		329C39DB256CC66100B69E17 /* SportsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsList.swift; sourceTree = "<group>"; };
 		329C39DE256CC8C300B69E17 /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		324187D025779FD30068BB25 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				324187E62577CF5B0068BB25 /* GoogleService-Info.plist */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 			files = (
 				4F2D8E47256BD503001A14C3 /* Preview Assets.xcassets in Resources */,
 				4F2D8E44256BD503001A14C3 /* Assets.xcassets in Resources */,
+				324187E72577CF5B0068BB25 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
