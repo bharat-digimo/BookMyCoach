@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct HeaderView: View {
+    var locationName: String
+    
+    init(location: String) {
+        self.locationName = location
+    }
     var body: some View {
         HStack {
             Button(action: {
@@ -17,7 +22,7 @@ struct HeaderView: View {
                     Image(systemName: "map")
                         .font(.title)
                     
-                    Text("Current Location")
+                    Text(locationName)
                         .font(.title2)
                         .bold()
                         .lineLimit(1)
@@ -50,7 +55,7 @@ struct HeaderView_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            HeaderView()
+            HeaderView(location: "Current location")
         }
     }
 }

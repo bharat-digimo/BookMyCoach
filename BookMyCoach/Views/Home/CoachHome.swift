@@ -12,12 +12,14 @@ struct CoachHome: View {
     @State private var bookings: [Booking] = [booking1, booking2, booking3, booking4]
     @State private var sports: [Sport] = allSports
     
+    @ObservedObject var locationManager = LocationManager()
+    
     var body: some View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                HeaderView()
+                HeaderView(location: locationManager.placemark?.locality ?? Constant.noLocation)
                 ScrollView {
                     CardHeader(category: Constant.upcomingSession)
                         .padding(.horizontal)

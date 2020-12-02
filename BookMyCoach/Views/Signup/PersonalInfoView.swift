@@ -18,6 +18,8 @@ struct PersonalInfoView: View {
     @EnvironmentObject var userManager: UserManager
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
+    @ObservedObject var locationManager = LocationManager()
+    
     @State var hourlyRate: String?
     @State private var navBarHidden: Bool = true
     @State private var showSportsList: Bool = false
@@ -172,8 +174,13 @@ struct PersonalInfoView: View {
     }
     
     private func updateProfile() {
+        guard let lat = locationManager.location?.latitude, let long = locationManager.location?.longitude else {
+            alertMessage = Constant.locationRequired
+            showsAlert = true
+            return
+        }
         let user = userManager.activeUser
-        user?.update(UserUpdateRequest(fullName: user?.fullName ?? "", bio: user?.bio, price: user?.price, latitude: 0.0, longitude: 0.0, profilePhoto: user?.profilePhoto), handler: { (user, error) in
+        user?.update(UserUpdateRequest(fullName: user?.fullName ?? "", bio: user?.bio, price: user?.price, latitude: lat, longitude: long, profilePhoto: user?.profilePhoto), handler: { (user, error) in
             showLoading = false
             if error == nil, let user = user {
                 UserManager.shared.activeUser = user

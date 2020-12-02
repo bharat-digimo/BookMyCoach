@@ -76,4 +76,7 @@ struct Constant {
     static let confirmNewPassword = "Confirm New Password"
     static let enterNewPassword = "Please enter your new password."
     static let enterConfirmNewPassword = "Please confirm your new password."
+    
+    static let noLocation = "No location found"
+    static let locationRequired = "Your current location is required."
 }

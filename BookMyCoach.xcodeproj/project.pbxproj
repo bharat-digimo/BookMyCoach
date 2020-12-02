@@ -40,6 +40,7 @@
 		4F2D8E5F256C082E001A14C3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E5E256C082E001A14C3 /* User.swift */; };
 		4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E62256C0A57001A14C3 /* Booking.swift */; };
 		4F6038882576A06600129F73 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6038872576A06600129F73 /* Constant.swift */; };
+		4F60388B25774D3100129F73 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60388A25774D3100129F73 /* LocationManager.swift */; };
 		4FB6DD782573AC1B001304F3 /* DPRequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */; };
 		4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */; };
 		4FB6DD7A2573AC1B001304F3 /* DPRequestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */; };
@@ -106,6 +107,7 @@
 		4F2D8E5E256C082E001A14C3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4F2D8E62256C0A57001A14C3 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		4F6038872576A06600129F73 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		4F60388A25774D3100129F73 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestConnection.swift; sourceTree = "<group>"; };
 		4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestConnectionConfiguration.swift; sourceTree = "<group>"; };
 		4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestPath.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				4FB6DDD0257689B5001304F3 /* GoogleService-Info.plist */,
 				4FB6DDCD25768920001304F3 /* StorageManager.swift */,
 				4F03374025729A0300F1BF18 /* UserManager.swift */,
+				4F60388A25774D3100129F73 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */,
 				4FB6DDD425768F66001304F3 /* UIImage+Compression.swift in Sources */,
 				4F0DC464256D143A002F2364 /* ProfileView.swift in Sources */,
+				4F60388B25774D3100129F73 /* LocationManager.swift in Sources */,
 				4FB6DD7C2573AC1B001304F3 /* DPRequestMethod.swift in Sources */,
 				4F0337512572B63D00F1BF18 /* LoginBottomView.swift in Sources */,
 				4F2D8E50256BD8C1001A14C3 /* PlayerHome.swift in Sources */,
