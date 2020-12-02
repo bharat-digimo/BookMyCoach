@@ -28,14 +28,22 @@ struct BookMyCoachApp: App {
                         PlayerTabView().environmentObject(userManager)
                     }
                 } else {
-                    NavigationView {
-                        PersonalInfoView().environmentObject(userManager)
-                            .navigationBarHidden(true)
-                    }
+                    PersonalInfoNavigationView().environmentObject(userManager)
                 }
                 
             }
             
         }
     }
+}
+
+struct PersonalInfoNavigationView: View {
+    
+    var body: some View {
+        NavigationView {
+            PersonalInfoView()
+                .navigationBarHidden(true)
+        }
+    }
+    
 }
