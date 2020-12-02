@@ -54,12 +54,14 @@ struct ProfileView: View {
                             Text(user?.fullName ?? "")
                                 .font(.title)
                                 .bold()
-                            HStack {
-                                Image(user?.userSports?[0].sport?.icon ?? "")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                Text(user?.userSports?[0].sport?.name ?? "")
-                                    .font(.title3)
+                            if user?.userType == UserType.coach {
+                                HStack {
+                                    Image(user?.userSports?.first?.sport?.icon ?? "")
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                    Text(user?.userSports?.first?.sport?.name ?? "")
+                                        .font(.title3)
+                                }
                             }
                             Spacer()
                         }

@@ -26,6 +26,7 @@ struct PersonalInfoView: View {
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
+    @State private var showPlayerDashboard = false
     
     @State private var image: Image?
     @State private var shouldPresentImagePicker = false
@@ -151,6 +152,9 @@ struct PersonalInfoView: View {
             ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
                 .frame(width: 100, height: 100)
         }
+        .fullScreenCover(isPresented: $showPlayerDashboard, content: {
+            ContentView()
+        })
         .navigationTitle(titleText)
         .navigationBarHidden(navBarHidden)
         .alert(isPresented: $showsAlert, content: {
@@ -185,7 +189,11 @@ struct PersonalInfoView: View {
             if error == nil, let user = user {
                 UserManager.shared.activeUser = user
                 if viewType == .create {
-                    showSportsList = true
+                    if user.userType == UserType.player {
+                        showPlayerDashboard = true
+                    } else {
+                        showSportsList = true
+                    }
                 } else {
                     self.mode.wrappedValue.dismiss()
                 }

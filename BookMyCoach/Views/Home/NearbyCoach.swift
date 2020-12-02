@@ -11,31 +11,27 @@ import CoreLocation
 
 struct NearbyCoach: View {
     
+    var location: CLLocation?
+    var coachBookingAction: ((User) -> ())?
+    var coaches: [User]
+    
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 12)
     ]
-    @State var coaches: [User] = []
-    var location: CLLocation?
     
-    init(location: CLLocation?) {
+    init(location: CLLocation?, coaches: [User], coachBookingAction: ((User) -> ())?) {
         self.location = location
+        self.coaches = coaches
+        self.coachBookingAction = coachBookingAction
     }
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
-            ForEach(coaches, id: \.id) { coach in
-                CoachProfileCard(coach: coach)
+            ForEach(0..<coaches.count, id: \.self) { index in
+                CoachProfileCard(coach: coaches[index], bookingAction: coachBookingAction)
             }
         }
         .foregroundColor(.white)
-        .onAppear(perform: {
-            let user = UserManager.shared.activeUser
-            User.nearbyCoach(NearbyCoachRequest(latitude: location?.latitude ?? user?.latitude ?? 0, longitude: location?.longitude ?? user?.longitude ?? 0)) { (list, error) in
-                if error == nil {
-                    coaches = list ?? []
-                }
-            }
-        })
     }
 }
 
@@ -44,7 +40,7 @@ struct NearbyCoach_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            NearbyCoach(location: nil)
+            NearbyCoach(location: nil, coaches: [user3], coachBookingAction: nil)
         }
     }
 }
@@ -53,6 +49,7 @@ struct CoachProfileCard: View {
     
     var coach: User
     let screen = UIScreen.main.bounds
+    var bookingAction: ((User) -> ())?
     
     var body: some View {
         HStack {
@@ -66,10 +63,10 @@ struct CoachProfileCard: View {
                     .padding(.top, 16)
                 
                 HStack {
-                    Image(coach.userSports?[0].sport?.icon ?? "")
+                    Image(coach.userSports?.first?.sport?.icon ?? "")
                         .resizable()
                         .frame(width: 20, height: 20)
-                    Text(coach.userSports?[0].sport?.name ?? "")
+                    Text(coach.userSports?.first?.sport?.name ?? "")
                 }
                 
                 HStack(spacing: 8) {
@@ -86,7 +83,11 @@ struct CoachProfileCard: View {
                         .bold()
                 }
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    if coach.bookingStatus == .none {
+                        bookingAction?(coach)
+                    }
+                }, label: {
                     Text(Constant.bookNow)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .font(.title3)
@@ -104,5 +105,6 @@ struct CoachProfileCard: View {
         .background(Color.white.opacity(0.2))
         .foregroundColor(.white)
     }
+    
 }
 

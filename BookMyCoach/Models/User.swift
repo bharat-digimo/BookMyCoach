@@ -20,6 +20,14 @@ struct User: Codable {
     var userSports: [UserSport]?
     var rating: Float? = 0.0
     var isProfileComplete: Bool? = false
+    var bookings: [Booking]? = []
+    
+    var bookingStatus: Booking.BookingStatus {
+        if let status = Booking.BookingStatus(rawValue: bookings?.first?.status.rawValue ?? "none") {
+            return status
+        }
+        return .none
+    }
     
     init() {
         id = 0
@@ -110,6 +118,13 @@ extension User {
                 UserManager.shared.activeUser = user
             }
             handler(error == nil, error)
+        }
+    }
+    
+    func bookCoach(_ handler: @escaping (Booking?, Error?)-> ()) {
+        let service = APIService.bookCoach(request: BookCoachRequest(coachId: self.id))
+        service.fetch(Booking.self) { (booking, error, _) in
+            handler(booking, error)
         }
     }
     

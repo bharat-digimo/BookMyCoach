@@ -35,6 +35,8 @@ extension APIService {
             return DPRequestPath(method: .GET, endPoint: "/user/booking/pending")
         case .respondBookingRequest:
             return DPRequestPath(method: .PATCH, endPoint: "/coach/booking/accept")
+        case .getMyBookings:
+            return DPRequestPath(method: .GET, endPoint: "/booking")
         }
     }
     

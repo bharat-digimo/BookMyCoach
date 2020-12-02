@@ -21,6 +21,7 @@ enum APIService: DPRequestProtocol {
     case pendingRequestForCoach
     case pendingRequestByPlayer
     case respondBookingRequest(request: RespondBookingRequest)
+    case getMyBookings
     
     func baseUrl() -> String? {
         return "http://52.66.24.50:5000/api/v1"

@@ -13,10 +13,23 @@ struct CardView: View {
     let screen = UIScreen.main.bounds
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            if bookings.count == 0 {
-                Text(Constant.noBookingAvailable)
-            } else {
+        if bookings.count == 0 {
+            ZStack {
+                Color.white.opacity(0.2)
+                HStack {
+                    Spacer()
+                    Text(Constant.noBookingAvailable)
+                        .font(.title2)
+                        .bold()
+                    Spacer()
+                }
+                .padding()
+                .padding(.vertical, 50)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+            .padding()
+        } else {
+            ScrollView(.horizontal, showsIndicators: false) {
                 TabView {
                     ForEach(bookings, id: \.id) { booking in
                         ZStack {
@@ -42,7 +55,6 @@ struct CardView: View {
                 .foregroundColor(.white)
             }
         }
-        
     }
 }
 
@@ -51,8 +63,9 @@ struct CardView_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            CardView(bookings: [booking1, booking2, booking3])
+            CardView(bookings: [])
         }
+        .foregroundColor(.white)
     }
 }
 

@@ -17,14 +17,18 @@ extension APIService {
             return DPRequestBody(model: user)
         case let .updateUser(request):
             return DPRequestBody(model: request)
-        case .getUserProfile, .logout:
-            return DPRequestBody()
         case let .getNearbyCoaches(request):
             return DPRequestBody(model: request)
         case let .changePassword(request):
             return DPRequestBody(model: request)
         case let .updateSports(request):
             return DPRequestBody(model: request)
+        case let .bookCoach(request):
+            return DPRequestBody(model: request)
+        case let .respondBookingRequest(request):
+            return DPRequestBody(model: request)
+        default:
+            return DPRequestBody()
         }
     }
     
