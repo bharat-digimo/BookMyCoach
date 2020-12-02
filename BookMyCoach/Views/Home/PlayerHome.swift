@@ -29,7 +29,7 @@ struct PlayerHome: View {
                     SportsList(sports: sports)
                     CardHeader(category: Constant.nearbyCoaches)
                         .padding(EdgeInsets(top: 16, leading: 20, bottom: 0, trailing: 12))
-                    NearbyCoach()
+                    NearbyCoach(location: locationManager.location)
                         .padding()
                 }
             }

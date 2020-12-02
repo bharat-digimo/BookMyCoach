@@ -7,6 +7,7 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import CoreLocation
 
 struct NearbyCoach: View {
     
@@ -14,6 +15,11 @@ struct NearbyCoach: View {
         GridItem(.flexible(), spacing: 12)
     ]
     @State var coaches: [User] = []
+    var location: CLLocation?
+    
+    init(location: CLLocation?) {
+        self.location = location
+    }
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 12) {
@@ -23,7 +29,8 @@ struct NearbyCoach: View {
         }
         .foregroundColor(.white)
         .onAppear(perform: {
-            User.nearbyCoach(NearbyCoachRequest(latitude: 0, longitude: 0)) { (list, error) in
+            let user = UserManager.shared.activeUser
+            User.nearbyCoach(NearbyCoachRequest(latitude: location?.latitude ?? user?.latitude ?? 0, longitude: location?.longitude ?? user?.longitude ?? 0)) { (list, error) in
                 if error == nil {
                     coaches = list ?? []
                 }
@@ -37,7 +44,7 @@ struct NearbyCoach_Previews: PreviewProvider {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            NearbyCoach(coaches: [coach1, coach2, coach6, coach8, coach5])
+            NearbyCoach(location: nil)
         }
     }
 }
