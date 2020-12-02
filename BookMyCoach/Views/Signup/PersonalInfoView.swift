@@ -26,12 +26,13 @@ struct PersonalInfoView: View {
     @State private var showsAlert = false
     @State private var alertMessage = ""
     @State private var showLoading = false
-    @State private var showPlayerDashboard = false
+    @State private var presentActionView = false
     
     @State private var image: Image?
     @State private var shouldPresentImagePicker = false
     @State private var shouldPresentActionSheet = false
     @State private var shouldPresentCamera = false
+    @State private var isPresentPlayerHomeView = false
     
     var viewType: ViewType = .create
     var titleText = ""
@@ -110,15 +111,17 @@ struct PersonalInfoView: View {
                                 }
                             }
                             .onTapGesture { self.shouldPresentActionSheet = true }
-                            .sheet(isPresented: $shouldPresentImagePicker) {
-                                ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$shouldPresentImagePicker)
-                            }.actionSheet(isPresented: $shouldPresentActionSheet) { () -> ActionSheet in
+                            .actionSheet(isPresented: $shouldPresentActionSheet) { () -> ActionSheet in
                                 ActionSheet(title: Text(Constant.chooseMode), message: Text(Constant.chooseModeMessage), buttons: [ActionSheet.Button.default(Text(Constant.camera), action: {
-                                    self.shouldPresentImagePicker = true
+//                                    self.shouldPresentImagePicker = true
                                     self.shouldPresentCamera = true
+                                    self.isPresentPlayerHomeView = false
+                                    self.presentActionView = true
                                 }), ActionSheet.Button.default(Text(Constant.photoLibrary), action: {
-                                    self.shouldPresentImagePicker = true
+//                                    self.shouldPresentImagePicker = true
                                     self.shouldPresentCamera = false
+                                    self.isPresentPlayerHomeView = false
+                                    self.presentActionView = true
                                 }), ActionSheet.Button.cancel()])
                             }
                             Text(Constant.chooseProfilePic)
@@ -143,6 +146,7 @@ struct PersonalInfoView: View {
                         Spacer().frame(height: 40)
                         NavigationLink(destination: SportsListView(), isActive: $showSportsList) { EmptyView() }
                         RoundedButton(text: viewType == .create ? Constant.next : Constant.update) {
+                            isPresentPlayerHomeView = true
                             nextTapped()
                         }
                     }
@@ -152,8 +156,12 @@ struct PersonalInfoView: View {
             ActivityIndicatorView(isVisible: $showLoading, type: .scalingDots)
                 .frame(width: 100, height: 100)
         }
-        .fullScreenCover(isPresented: $showPlayerDashboard, content: {
-            PlayerTabView()
+        .fullScreenCover(isPresented: $presentActionView, content: {
+            if self.isPresentPlayerHomeView {
+                PlayerTabView()
+            } else {
+                ImagePickerView(sourceType: self.shouldPresentCamera ? .camera : .photoLibrary, image: self.$image, isPresented: self.$presentActionView)
+            }
         })
         .navigationTitle(titleText)
         .navigationBarHidden(navBarHidden)
@@ -190,7 +198,7 @@ struct PersonalInfoView: View {
                 UserManager.shared.activeUser = user
                 if viewType == .create {
                     if user.userType == UserType.player {
-                        showPlayerDashboard = true
+                        presentActionView = true
                     } else {
                         showSportsList = true
                     }

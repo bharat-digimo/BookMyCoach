@@ -27,7 +27,7 @@ struct ChangePasswordView: View {
                     }
                     
                     Section(header: Text(Constant.createNewPassword)) {
-                        LoginTextField(text: $password, placeholder:Constant.newAccount, imageName: "lock", isSecure: true, includeUnderline: false)
+                        LoginTextField(text: $password, placeholder: Constant.newPassword, imageName: "lock", isSecure: true, includeUnderline: false)
                         
                         LoginTextField(text: $confirmPassword, placeholder: Constant.confirmNewPassword, imageName: "lock", isSecure: true, includeUnderline: false)
                     }
