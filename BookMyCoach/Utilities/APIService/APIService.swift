@@ -17,6 +17,10 @@ enum APIService: DPRequestProtocol {
     case logout
     case changePassword(request: UpdatePasswordRequest)
     case updateSports(request: UpdateSportsRequest)
+    case bookCoach(request: BookCoachRequest)
+    case pendingRequestForCoach
+    case pendingRequestByPlayer
+    case respondBookingRequest(request: RespondBookingRequest)
     
     func baseUrl() -> String? {
         return "http://52.66.24.50:5000/api/v1"

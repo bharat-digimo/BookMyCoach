@@ -27,6 +27,14 @@ extension APIService {
             return DPRequestPath(method: .PATCH, endPoint: "/user/changePassword")
         case .updateSports:
             return DPRequestPath(method: .PUT, endPoint: "/user/sports")
+        case .bookCoach:
+            return DPRequestPath(method: .POST, endPoint: "/booking/request")
+        case .pendingRequestForCoach:
+            return DPRequestPath(method: .GET, endPoint: "/coach/booking/pending")
+        case .pendingRequestByPlayer:
+            return DPRequestPath(method: .GET, endPoint: "/user/booking/pending")
+        case .respondBookingRequest:
+            return DPRequestPath(method: .PATCH, endPoint: "/coach/booking/accept")
         }
     }
     

@@ -41,6 +41,7 @@
 		4F2D8E63256C0A57001A14C3 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D8E62256C0A57001A14C3 /* Booking.swift */; };
 		4F6038882576A06600129F73 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6038872576A06600129F73 /* Constant.swift */; };
 		4F60388B25774D3100129F73 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60388A25774D3100129F73 /* LocationManager.swift */; };
+		4F60388E25775C5500129F73 /* BookingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F60388D25775C5500129F73 /* BookingRequest.swift */; };
 		4FB6DD782573AC1B001304F3 /* DPRequestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */; };
 		4FB6DD792573AC1B001304F3 /* DPRequestConnectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */; };
 		4FB6DD7A2573AC1B001304F3 /* DPRequestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */; };
@@ -108,6 +109,7 @@
 		4F2D8E62256C0A57001A14C3 /* Booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		4F6038872576A06600129F73 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4F60388A25774D3100129F73 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4F60388D25775C5500129F73 /* BookingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingRequest.swift; sourceTree = "<group>"; };
 		4FB6DD692573AC1A001304F3 /* DPRequestConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestConnection.swift; sourceTree = "<group>"; };
 		4FB6DD6A2573AC1A001304F3 /* DPRequestConnectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestConnectionConfiguration.swift; sourceTree = "<group>"; };
 		4FB6DD6C2573AC1B001304F3 /* DPRequestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPRequestPath.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			children = (
 				4FB6DD952573AF7C001304F3 /* UserRequest.swift */,
 				4FB6DD9A2573B225001304F3 /* CoachRequest.swift */,
+				4F60388D25775C5500129F73 /* BookingRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				4F03371B257235CC00F1BF18 /* CreateAccountView.swift in Sources */,
 				4FB6DD7A2573AC1B001304F3 /* DPRequestPath.swift in Sources */,
 				4F03371E2572476900F1BF18 /* RadioButton.swift in Sources */,
+				4F60388E25775C5500129F73 /* BookingRequest.swift in Sources */,
 				4FB6DDB625753668001304F3 /* ChangePasswordView.swift in Sources */,
 				4FB6DDC12576455D001304F3 /* Image+Helper.swift in Sources */,
 				4FB6DDC425764A8A001304F3 /* ImageLoader.swift in Sources */,
